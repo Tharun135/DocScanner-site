@@ -1,0 +1,9 @@
+site_name: DocScanner Presentation
+theme:
+  name: material   # or your org theme
+
+nav:
+  - Home: index.md
+  - Features: features.md
+  - Usage Guide: usage.md
+  - FAQ: faq.md
