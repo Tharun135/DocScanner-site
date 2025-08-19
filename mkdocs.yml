@@ -9,3 +9,6 @@ nav:
   - Usage Guide: usage.md
   - Installation: how-to-use.md
   - FAQ: faq.md
+
+extra_css:
+  - stylesheets/extra.css

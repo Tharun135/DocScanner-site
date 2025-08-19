@@ -1,8 +1,16 @@
-# DocScanner – RAG based AI Review tool
+# DocScanner – RAG based AI Review Tool
 
-![DocScanner Banner](images/hero.png)
-
-**DocScanner AI helps technical writers automatically review user manuals, enforce style guides, and suggest improvements using AI-powered insights.**
+<section id="hero" style="text-align:center; padding:50px; background:linear-gradient(to right,#1a8a8a,#256d85); color:white;">
+  <img src="assets/logo.png" alt="Docscanner Logo" style="max-width:220px; margin-bottom:20px;">
+  <h1>Welcome to Docscanner</h1>
+  <p>
+    AI-powered document review tool designed for technical writers.  
+    Analyze your documentation with style rules, LLMs, and RAG for faster, consistent, and clearer writing.
+  </p>
+  <a href="https://your-flask-app-url.com" style="display:inline-block; margin-top:20px; padding:12px 25px; background:white; color:#256d85; border-radius:6px; text-decoration:none; font-weight:bold;">
+    🚀 Get Started
+  </a>
+</section>
 
 ---
 
@@ -35,20 +43,17 @@
 
 ## ⚙️ How It Works
 
-<div class="md-tabs">
-  
-### Upload Documents
+### 1. Upload Documents
 - Upload files or connect to your repository.
 
-### Rule-Based Analysis
+### 2. Rule-Based Analysis
 - Predefined style, grammar, and terminology rules are applied.
 
-### AI Suggestions
+### 3. AI Suggestions
 - RAG + LLM provides context-aware improvements.
 
-### Export & Feedback
+### 4. Export & Feedback
 - Review suggested corrections and export improved content.
-</div>
 
 ![Workflow Overview](images/workflow.png)
 
@@ -56,4 +61,7 @@
 
 ## 📌 Get Started
 
-[Try it locally →](usage.md)
+<div class="cta-buttons">
+  <a href="https://your-flask-app-link.com" class="btn-primary">🚀 Try DocScanner</a>
+  <a href="usage.md" class="btn-secondary">📖 View Documentation</a>
+</div>

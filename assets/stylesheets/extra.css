@@ -1,0 +1,176 @@
+/* ===== Hero Section ===== */
+#hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #1a8a8a, #256d85);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+#hero img {
+  max-width: 220px;
+  margin-bottom: 20px;
+}
+
+#hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== Cards ===== */
+.md-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.md-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.md-card h3 {
+  margin-bottom: 10px;
+  color: #256d85;
+}
+
+.md-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ===== Tabs Section ===== */
+.md-tabs {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.md-tabs h3 {
+  color: #1a8a8a;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* ===== Workflow Image ===== */
+img[alt="Workflow Overview"] {
+  display: block;
+  max-width: 700px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Buttons / Links ===== */
+a.md-button, 
+a[href$="usage.md"] {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #256d85;
+  color: white !important;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+a.md-button:hover, 
+a[href$="usage.md"]:hover {
+  background: #1a8a8a;
+}
+
+/* Call-to-action button styles */
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #1a8a8a, #256d85);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #256d85, #1a8a8a);
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background: #f4f4f4;
+  color: #333;
+  border: 2px solid #1a8a8a;
+}
+
+.btn-secondary:hover {
+  background: #1a8a8a;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Apply your gradient background to the entire site */
+.md-container {
+  background: linear-gradient(to right, #1a8a8a, #256d85);
+  color: white; /* makes text readable */
+}
+
+/* Ensure all content text is white by default */
+.md-typeset {
+  color: white;
+}
+
+/* Adjust links to be visible */
+a {
+  color: #ffd700; /* gold/yellow links */
+}
+
+a:hover {
+  color: #fff176; /* lighter on hover */
+}
+
+/* Adjust cards, buttons, etc. so they blend with gradient */
+.md-button {
+  background-color: #0e4d4d !important;
+  color: white !important;
+  border-radius: 8px;
+}
+
+.md-button--secondary {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
