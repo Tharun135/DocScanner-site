@@ -1,9 +1,11 @@
-site_name: DocScanner Presentation
+site_name: DocScanner – RAG based AI Review tool
 theme:
   name: material   # or your org theme
 
 nav:
   - Home: index.md
   - Features: features.md
+  - Technology: technology.md
   - Usage Guide: usage.md
+  - Installation: how-to-use.md
   - FAQ: faq.md
