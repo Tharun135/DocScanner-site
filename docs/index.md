@@ -1,10 +1,5 @@
-<p align="center">
-  <img src="images/logo.png" alt="DocScanner Logo" width="600">
-</p>
-
-# 🏠 Welcome to DocScanner
-
-**Your intelligent writing assistant** that helps create better documents while keeping your data completely private and secure.
+<div class="hero-section" style="background-image: url('images/logo-docscanner.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 500px; position: relative; margin: -20px -20px 40px -20px; border-radius: 15px;">
+</div>
 
 ---
 
