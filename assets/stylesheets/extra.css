@@ -2,11 +2,11 @@
 
 /* Target the page background directly */
 html {
-  background: linear-gradient(135deg, #a8d4a8 0%, #b8d8e8 50%, #9cc5e6 100%) !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
 }
 
 body {
-  background: linear-gradient(135deg, #a8d4a8 0%, #b8d8e8 50%, #9cc5e6 100%) !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -92,7 +92,7 @@ body {
 
 /* Global body and html styling - FORCED */
 html, body {
-  background: linear-gradient(135deg, #b8e0b8 0%, #c8e5f0 50%, #b8d8e8 100%) !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
   min-height: 100vh !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -100,7 +100,7 @@ html, body {
 
 /* FORCE the main container background */
 .md-container {
-  background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #e6f3ff 100%) !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
   min-height: 100vh !important;
 }
 

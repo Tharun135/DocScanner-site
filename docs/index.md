@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/logo.png" alt="DocScanner Logo" width="600">
+</p>
+
 # 🏠 Welcome to DocScanner
 
 **Your intelligent writing assistant** that helps create better documents while keeping your data completely private and secure.
