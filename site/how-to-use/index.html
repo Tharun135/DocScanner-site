@@ -1,0 +1,1402 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../usage/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Installation - DocScanner – RAG based AI Review tool</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+  <style>
+    /* FORCE BACKGROUND OVERRIDE - INLINE STYLES HAVE HIGHEST PRIORITY */
+    html, body {
+      background: linear-gradient(135deg, #d4f1d4 0%, #e1f5fe 50%, #c8e6ff 100%) !important;
+      min-height: 100vh !important;
+    }
+    
+    .md-container {
+      background: transparent !important;
+    }
+    
+    .md-main {
+      background: transparent !important;
+    }
+    
+    .md-main__inner {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.95) 0%, rgba(210, 245, 235, 0.95) 50%, rgba(220, 245, 255, 0.95) 100%) !important;
+      border-radius: 15px !important;
+      margin: 20px 10px !important;
+      max-width: none !important;
+      box-shadow: 0 8px 32px rgba(26, 138, 138, 0.2) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-content {
+      background: transparent !important;
+      padding: 30px !important;
+      max-width: none !important;
+    }
+    
+    .md-grid {
+      background: transparent !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    
+    .md-container {
+      max-width: none !important;
+    }
+    
+    /* Override any white backgrounds */
+    .md-typeset, .md-content__inner, article {
+      background: transparent !important;
+    }
+    
+    /* Text colors */
+    .md-typeset {
+      color: #333333 !important;
+    }
+    
+    .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      color: #1a8a8a !important;
+    }
+    
+    /* Navigation */
+    .md-nav {
+      background: linear-gradient(135deg, rgba(225, 245, 254, 0.9) 0%, rgba(200, 240, 220, 0.9) 100%) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-sidebar__scrollwrap {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.9) 0%, rgba(215, 245, 235, 0.9) 100%) !important;
+      border-radius: 12px !important;
+      margin: 20px 10px !important;
+      box-shadow: 0 4px 20px rgba(26, 138, 138, 0.15) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+  </style>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-setup-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-header__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DocScanner – RAG based AI Review tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-nav__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DocScanner – RAG based AI Review tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benefits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benefits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You Need
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-download-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download DocScanner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install DocScanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Install DocScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mac Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-first-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: First Launch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: First Launch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding AI Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding AI Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-using-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Using DocScanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Using DocScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported File Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-enterprise-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team &amp; Enterprise Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Team & Enterprise Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-for-multiple-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing for Multiple Users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-using-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Using DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You Need
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-download-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download DocScanner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-install-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Install DocScanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Install DocScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mac Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-first-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: First Launch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: First Launch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-ai-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding AI Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding AI Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-using-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Using DocScanner
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Using DocScanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported File Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-enterprise-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team &amp; Enterprise Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Team & Enterprise Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-for-multiple-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing for Multiple Users
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-using-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Using DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="installation-setup-guide">⚙️ Installation &amp; Setup Guide</h1>
+<p>Step-by-step instructions to get DocScanner running on your computer.</p>
+<hr />
+<h2 id="system-requirements">System Requirements</h2>
+<h3 id="what-you-need">What You Need</h3>
+<p><strong>Minimum Requirements:</strong>
+- 8GB RAM (memory)
+- 4-core processor
+- 20GB free storage space
+- Windows 10+, macOS 10.15+, or Linux
+- Internet connection (only for initial setup)</p>
+<p><strong>Recommended for Best Performance:</strong>
+- 16GB RAM or more
+- 8-core processor
+- SSD storage with 50GB free space
+- Modern web browser (Chrome, Firefox, Safari, Edge)</p>
+<hr />
+<h2 id="step-1-download-docscanner">Step 1: Download DocScanner</h2>
+<ol>
+<li><strong>Download the installer</strong> from the official DocScanner website</li>
+<li><strong>Choose your operating system</strong>: Windows, Mac, or Linux</li>
+<li><strong>Save the file</strong> to your Downloads folder</li>
+</ol>
+<hr />
+<h2 id="step-2-install-docscanner">Step 2: Install DocScanner</h2>
+<h3 id="windows-installation">Windows Installation</h3>
+<ol>
+<li><strong>Double-click</strong> the downloaded installer file</li>
+<li><strong>Follow the setup wizard</strong>:</li>
+<li>Click "Next" through the welcome screens</li>
+<li>Choose installation folder (default is fine)</li>
+<li>Accept the license agreement</li>
+<li>Click "Install"</li>
+<li><strong>Wait for installation</strong> to complete (5-10 minutes)</li>
+<li><strong>Click "Finish"</strong> when done</li>
+</ol>
+<h3 id="mac-installation">Mac Installation</h3>
+<ol>
+<li><strong>Double-click</strong> the downloaded <code>.dmg</code> file</li>
+<li><strong>Drag DocScanner</strong> to the Applications folder</li>
+<li><strong>Open Applications</strong> folder and find DocScanner</li>
+<li><strong>Right-click</strong> and select "Open" (first time only)</li>
+<li><strong>Click "Open"</strong> when security warning appears</li>
+</ol>
+<h3 id="linux-installation">Linux Installation</h3>
+<ol>
+<li><strong>Open Terminal</strong></li>
+<li><strong>Navigate</strong> to your Downloads folder</li>
+<li><strong>Run the installer</strong> by double-clicking or following provided instructions</li>
+<li><strong>Enter your password</strong> when prompted</li>
+</ol>
+<hr />
+<h2 id="step-3-first-launch">Step 3: First Launch</h2>
+<h3 id="starting-docscanner">Starting DocScanner</h3>
+<ol>
+<li><strong>Find DocScanner</strong> in your applications or start menu</li>
+<li><strong>Double-click</strong> to launch</li>
+<li><strong>Wait for startup</strong> (may take 1-2 minutes first time)</li>
+<li><strong>Your web browser will open</strong> automatically to <code>http://localhost:5000</code></li>
+</ol>
+<h3 id="initial-setup">Initial Setup</h3>
+<p>When DocScanner starts for the first time:</p>
+<ol>
+<li><strong>AI Model Download</strong> will begin automatically</li>
+<li>This downloads the AI models to your computer</li>
+<li>Takes 10-20 minutes depending on internet speed</li>
+<li>Downloads about 5GB of data</li>
+<li>
+<p>Only happens once</p>
+</li>
+<li>
+<p><strong>Choose Your AI Model</strong>:</p>
+</li>
+<li><strong>Recommended</strong>: Let DocScanner choose automatically</li>
+<li>
+<p><strong>Advanced</strong>: Select specific model based on your computer's power</p>
+</li>
+<li>
+<p><strong>Test Your Setup</strong>:</p>
+</li>
+<li>Upload a small document</li>
+<li>Check that suggestions appear</li>
+<li>Verify everything works correctly</li>
+</ol>
+<hr />
+<h2 id="understanding-ai-models">Understanding AI Models</h2>
+<p>DocScanner includes several AI models. Don't worry - it automatically picks the best one for your computer!</p>
+<h3 id="available-models">Available Models</h3>
+<p><strong>Mistral</strong> (Recommended)
+- Best balance of quality and speed
+- Works well on most computers
+- 4.4GB download size</p>
+<p><strong>Llama3</strong> (High Quality)
+- Highest quality suggestions
+- Needs more computer power
+- 4.7GB download size</p>
+<p><strong>Phi3</strong> (Fast)
+- Quick processing
+- Good for older computers
+- 2.2GB download size</p>
+<p><strong>TinyLLaMA</strong> (Always Works)
+- Works on any computer
+- Basic but reliable suggestions
+- 637MB download size</p>
+<hr />
+<h2 id="step-4-using-docscanner">Step 4: Using DocScanner</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<ol>
+<li><strong>Open your web browser</strong> to <code>http://localhost:5000</code></li>
+<li><strong>Upload a document</strong> by:</li>
+<li>Dragging and dropping a file</li>
+<li>Clicking "Browse" to select files</li>
+<li>Copy-pasting text directly</li>
+<li><strong>Wait for analysis</strong> (usually 10-30 seconds)</li>
+<li><strong>Review suggestions</strong> and apply improvements</li>
+<li><strong>Download</strong> your improved document</li>
+</ol>
+<h3 id="supported-file-types">Supported File Types</h3>
+<p>DocScanner works with:
+- Microsoft Word documents (.docx)
+- PDF files
+- Text files (.txt)
+- Markdown files (.md)
+- HTML files
+- Multiple files in ZIP archives</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>DocScanner won't start:</strong>
+1. Restart your computer
+2. Check you have enough free disk space (20GB+)
+3. Disable antivirus temporarily during setup
+4. Run as administrator (Windows) or with sudo (Linux)</p>
+<p><strong>AI models won't download:</strong>
+1. Check your internet connection
+2. Disable firewall temporarily
+3. Try again later (servers might be busy)
+4. Contact support if problem persists</p>
+<p><strong>Browser shows "Connection failed":</strong>
+1. Wait a few more minutes (DocScanner might still be starting)
+2. Try refreshing the page
+3. Check if another application is using port 5000
+4. Restart DocScanner</p>
+<p><strong>Suggestions are slow or poor quality:</strong>
+1. Close other programs to free up memory
+2. Try a different AI model in settings
+3. Process smaller documents
+4. Restart DocScanner</p>
+<h3 id="getting-help">Getting Help</h3>
+<p><strong>Built-in Help:</strong>
+- Press F1 in DocScanner for context-sensitive help
+- Check the status indicator for system health
+- Look for error messages in the interface</p>
+<p><strong>Documentation:</strong>
+- Read the Usage Guide for detailed instructions
+- Check FAQ for common questions
+- Review Features list for capabilities</p>
+<p><strong>Support Options:</strong>
+- Contact technical support
+- Join the user community forum
+- Check the knowledge base online</p>
+<hr />
+<h2 id="team-enterprise-setup">Team &amp; Enterprise Setup</h2>
+<h3 id="installing-for-multiple-users">Installing for Multiple Users</h3>
+<p><strong>Small Teams (2-10 people):</strong>
+1. Install DocScanner on a shared computer or server
+2. Team members access via web browser
+3. Set up user accounts and permissions
+4. Configure shared custom rules</p>
+<p><strong>Large Organizations:</strong>
+1. Contact support for enterprise deployment
+2. Use Docker containers for scalability
+3. Integrate with existing authentication systems
+4. Set up monitoring and backup procedures</p>
+<h3 id="security-considerations">Security Considerations</h3>
+<p><strong>Data Privacy:</strong>
+- All processing happens on your computers
+- No data is sent to external servers
+- Documents never leave your network
+- Complete offline operation after setup</p>
+<p><strong>Access Control:</strong>
+- Set up user accounts and passwords
+- Configure role-based permissions
+- Enable audit logging for compliance
+- Integrate with company authentication</p>
+<hr />
+<h2 id="advanced-configuration">Advanced Configuration</h2>
+<h3 id="performance-optimization">Performance Optimization</h3>
+<p><strong>For Faster Processing:</strong>
+1. Use SSD storage instead of traditional hard drives
+2. Add more RAM to your computer
+3. Close unnecessary applications
+4. Select faster AI models in settings</p>
+<p><strong>For Better Quality:</strong>
+1. Use higher-quality AI models
+2. Add custom rules for your organization
+3. Train the system with your preferred style
+4. Review and accept high-confidence suggestions</p>
+<h3 id="customization-options">Customization Options</h3>
+<p><strong>Organization Rules:</strong>
+- Add company-specific terminology
+- Define style guidelines
+- Set up brand consistency checks
+- Create industry-specific rules</p>
+<p><strong>Integration Setup:</strong>
+- Connect with document management systems
+- Set up automated processing workflows
+- Configure notifications and alerts
+- Enable API access for developers</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<h3 id="learn-more">Learn More</h3>
+<ol>
+<li><strong>Read the Usage Guide</strong> - Learn how to analyze documents effectively</li>
+<li><strong>Explore Features</strong> - Discover all DocScanner capabilities  </li>
+<li><strong>Review FAQ</strong> - Get answers to common questions</li>
+<li><strong>Join the Community</strong> - Connect with other users</li>
+</ol>
+<h3 id="start-using-docscanner">Start Using DocScanner</h3>
+<ol>
+<li><strong>Test with sample documents</strong> - Try different file types</li>
+<li><strong>Experiment with settings</strong> - Find your preferred configuration</li>
+<li><strong>Set up custom rules</strong> - Add your organization's standards</li>
+<li><strong>Share with your team</strong> - Help others get started</li>
+</ol>
+<hr />
+<p><strong>Congratulations! DocScanner is now ready to help improve your writing.</strong></p>
+<p>🎉 <strong>You now have your own private AI writing assistant running on your computer!</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/background-fix.js"></script>
+      
+    
+  </body>
+</html>

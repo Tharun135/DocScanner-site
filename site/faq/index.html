@@ -1,0 +1,1220 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../how-to-use/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>FAQ - DocScanner – RAG based AI Review tool</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+  <style>
+    /* FORCE BACKGROUND OVERRIDE - INLINE STYLES HAVE HIGHEST PRIORITY */
+    html, body {
+      background: linear-gradient(135deg, #d4f1d4 0%, #e1f5fe 50%, #c8e6ff 100%) !important;
+      min-height: 100vh !important;
+    }
+    
+    .md-container {
+      background: transparent !important;
+    }
+    
+    .md-main {
+      background: transparent !important;
+    }
+    
+    .md-main__inner {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.95) 0%, rgba(210, 245, 235, 0.95) 50%, rgba(220, 245, 255, 0.95) 100%) !important;
+      border-radius: 15px !important;
+      margin: 20px 10px !important;
+      max-width: none !important;
+      box-shadow: 0 8px 32px rgba(26, 138, 138, 0.2) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-content {
+      background: transparent !important;
+      padding: 30px !important;
+      max-width: none !important;
+    }
+    
+    .md-grid {
+      background: transparent !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    
+    .md-container {
+      max-width: none !important;
+    }
+    
+    /* Override any white backgrounds */
+    .md-typeset, .md-content__inner, article {
+      background: transparent !important;
+    }
+    
+    /* Text colors */
+    .md-typeset {
+      color: #333333 !important;
+    }
+    
+    .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      color: #1a8a8a !important;
+    }
+    
+    /* Navigation */
+    .md-nav {
+      background: linear-gradient(135deg, rgba(225, 245, 254, 0.9) 0%, rgba(200, 240, 220, 0.9) 100%) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-sidebar__scrollwrap {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.9) 0%, rgba(215, 245, 235, 0.9) 100%) !important;
+      border-radius: 12px !important;
+      margin: 20px 10px !important;
+      box-shadow: 0 4px 20px rgba(26, 138, 138, 0.15) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+  </style>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frequently-asked-questions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-header__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DocScanner – RAG based AI Review tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-nav__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DocScanner – RAG based AI Review tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benefits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benefits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is DocScanner?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-it-different-from-online-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      How is it different from online tools?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-file-formats-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      What file formats are supported?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the system requirements?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-ai-model-should-i-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which AI model should I choose?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-accurate-are-the-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      How accurate are the suggestions?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup &amp; Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup & Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-long-does-setup-take" class="md-nav__link">
+    <span class="md-ellipsis">
+      How long does setup take?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-add-custom-writing-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I add custom writing rules?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-it-work-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does it work offline?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance &amp; Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance & Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-fast-is-document-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      How fast is document processing?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-it-handle-multiple-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can it handle multiple users?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-models-wont-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI models won't load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-is-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing is slow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestions-are-inconsistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggestions are inconsistent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security & Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-my-data-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is my data secure?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-it-compliant-with-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is it compliant with regulations?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration &amp; API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration & API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-integrate-with-existing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate with existing workflows?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-api-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example API usage?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is DocScanner?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-is-it-different-from-online-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      How is it different from online tools?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-file-formats-are-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      What file formats are supported?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are the system requirements?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-ai-model-should-i-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which AI model should I choose?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-accurate-are-the-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      How accurate are the suggestions?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup &amp; Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup & Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-long-does-setup-take" class="md-nav__link">
+    <span class="md-ellipsis">
+      How long does setup take?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-add-custom-writing-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I add custom writing rules?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#does-it-work-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Does it work offline?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance &amp; Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance & Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-fast-is-document-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      How fast is document processing?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-it-handle-multiple-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can it handle multiple users?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-models-wont-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI models won't load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-is-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing is slow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggestions-are-inconsistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggestions are inconsistent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security & Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-my-data-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is my data secure?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-it-compliant-with-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is it compliant with regulations?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration &amp; API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration & API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-i-integrate-with-existing-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I integrate with existing workflows?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-api-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example API usage?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="frequently-asked-questions">❓ Frequently Asked Questions</h1>
+<p>Quick answers to common questions about DocScanner.</p>
+<hr />
+<h2 id="basic-questions">Basic Questions</h2>
+<h3 id="what-is-docscanner">What is DocScanner?</h3>
+<p>DocScanner is an AI-powered writing assistant that runs completely on your infrastructure. It combines 39+ traditional writing rules with local AI models to improve document quality while ensuring complete privacy.</p>
+<h3 id="how-is-it-different-from-online-tools">How is it different from online tools?</h3>
+<ul>
+<li><strong>Complete Privacy</strong>: All processing happens on your servers</li>
+<li><strong>No Subscription Fees</strong>: One-time setup, unlimited usage</li>
+<li><strong>Always Available</strong>: Works offline, no external dependencies</li>
+<li><strong>Customizable</strong>: Add your organization's specific writing rules</li>
+</ul>
+<h3 id="what-file-formats-are-supported">What file formats are supported?</h3>
+<p>Microsoft Word (.docx), PDF, HTML, Markdown, Plain Text, and ZIP archives for batch processing.</p>
+<hr />
+<h2 id="technical-questions">Technical Questions</h2>
+<h3 id="what-are-the-system-requirements">What are the system requirements?</h3>
+<p><strong>Minimum:</strong>
+- 8GB RAM, 4-core CPU, 20GB storage
+- Python 3.11+, modern web browser</p>
+<p><strong>Recommended:</strong>
+- 16GB RAM, 8-core CPU, 50GB SSD storage</p>
+<h3 id="which-ai-model-should-i-choose">Which AI model should I choose?</h3>
+<ul>
+<li><strong>Mistral</strong> (4.4GB) - Best balance of quality and speed</li>
+<li><strong>Llama3</strong> (4.7GB) - Highest quality for critical documents</li>
+<li><strong>Phi3</strong> (2.2GB) - Fast processing, resource-efficient  </li>
+<li><strong>TinyLLaMA</strong> (637MB) - Always available, works on any system</li>
+</ul>
+<h3 id="how-accurate-are-the-suggestions">How accurate are the suggestions?</h3>
+<ul>
+<li>Grammar issues: 94-96% accuracy</li>
+<li>Style improvements: 88-92% user acceptance rate</li>
+<li>Each AI suggestion includes confidence scores (High/Medium/Low)</li>
+</ul>
+<hr />
+<h2 id="setup-usage">Setup &amp; Usage</h2>
+<h3 id="how-long-does-setup-take">How long does setup take?</h3>
+<ul>
+<li>Single user: 15-20 minutes (including model download)</li>
+<li>Enterprise deployment: 1-2 hours with IT configuration</li>
+</ul>
+<h3 id="can-i-add-custom-writing-rules">Can I add custom writing rules?</h3>
+<p>Yes! You can add organization-specific rules through the web interface. Simply define what text to find, what to replace it with, and categorize the rule (like "branding" or "style guidelines").</p>
+<h3 id="does-it-work-offline">Does it work offline?</h3>
+<p>Yes, once models are downloaded, DocScanner works completely offline.</p>
+<hr />
+<h2 id="performance-scaling">Performance &amp; Scaling</h2>
+<h3 id="how-fast-is-document-processing">How fast is document processing?</h3>
+<ul>
+<li>Small documents (1-5 pages): 5-15 seconds</li>
+<li>Medium documents (10-20 pages): 30-60 seconds</li>
+<li>Large documents (50+ pages): 2-5 minutes</li>
+</ul>
+<h3 id="can-it-handle-multiple-users">Can it handle multiple users?</h3>
+<p>Yes, DocScanner scales from single users to enterprise deployments with Docker and Kubernetes support.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="ai-models-wont-load">AI models won't load</h3>
+<ol>
+<li>Check available disk space (12GB+ recommended)</li>
+<li>Verify Ollama service is running</li>
+<li>Try TinyLLaMA for minimal resource usage</li>
+<li>Restart the application</li>
+</ol>
+<h3 id="processing-is-slow">Processing is slow</h3>
+<ol>
+<li>Switch to a lighter model (Phi3 instead of Llama3)</li>
+<li>Close other memory-intensive applications</li>
+<li>Enable background processing for large documents</li>
+</ol>
+<h3 id="suggestions-are-inconsistent">Suggestions are inconsistent</h3>
+<ol>
+<li>Focus on high-confidence suggestions (90%+)</li>
+<li>Check if document type is correctly detected</li>
+<li>Consider adding custom rules for specific needs</li>
+</ol>
+<hr />
+<h2 id="security-privacy">Security &amp; Privacy</h2>
+<h3 id="is-my-data-secure">Is my data secure?</h3>
+<p>Yes. DocScanner provides complete data privacy:
+- All processing happens on your infrastructure
+- No external API calls or data transmission
+- Documents encrypted at rest and in transit
+- Zero analytics or telemetry collection</p>
+<h3 id="is-it-compliant-with-regulations">Is it compliant with regulations?</h3>
+<p>DocScanner is designed for compliance:
+- GDPR compliant (no external data sharing)
+- HIPAA compatible for healthcare organizations
+- SOC 2 Type II controls available</p>
+<hr />
+<h2 id="integration-api">Integration &amp; API</h2>
+<h3 id="can-i-integrate-with-existing-workflows">Can I integrate with existing workflows?</h3>
+<p>Yes, DocScanner provides:
+- RESTful API for programmatic access
+- CI/CD pipeline integration examples
+- Webhook support for notifications
+- Batch processing capabilities</p>
+<h3 id="example-api-usage">Example API usage?</h3>
+<p>The API accepts POST requests with document files and returns analysis results in JSON format. You can specify which AI model to use and set confidence thresholds for suggestions.</p>
+<hr />
+<p><strong>Need more help?</strong></p>
+<ul>
+<li>Check the <a href="../usage/">Usage Guide</a> for detailed instructions</li>
+<li>Review <a href="../technology/">Technical Details</a> for architecture information</li>
+<li>Explore <a href="../features/">Features</a> for complete capabilities</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/background-fix.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1918 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../technology/">
+      
+      
+        <link rel="next" href="../how-to-use/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Usage Guide - DocScanner – RAG based AI Review tool</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+  <style>
+    /* FORCE BACKGROUND OVERRIDE - INLINE STYLES HAVE HIGHEST PRIORITY */
+    html, body {
+      background: linear-gradient(135deg, #d4f1d4 0%, #e1f5fe 50%, #c8e6ff 100%) !important;
+      min-height: 100vh !important;
+    }
+    
+    .md-container {
+      background: transparent !important;
+    }
+    
+    .md-main {
+      background: transparent !important;
+    }
+    
+    .md-main__inner {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.95) 0%, rgba(210, 245, 235, 0.95) 50%, rgba(220, 245, 255, 0.95) 100%) !important;
+      border-radius: 15px !important;
+      margin: 20px 10px !important;
+      max-width: none !important;
+      box-shadow: 0 8px 32px rgba(26, 138, 138, 0.2) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-content {
+      background: transparent !important;
+      padding: 30px !important;
+      max-width: none !important;
+    }
+    
+    .md-grid {
+      background: transparent !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    
+    .md-container {
+      max-width: none !important;
+    }
+    
+    /* Override any white backgrounds */
+    .md-typeset, .md-content__inner, article {
+      background: transparent !important;
+    }
+    
+    /* Text colors */
+    .md-typeset {
+      color: #333333 !important;
+    }
+    
+    .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      color: #1a8a8a !important;
+    }
+    
+    /* Navigation */
+    .md-nav {
+      background: linear-gradient(135deg, rgba(225, 245, 254, 0.9) 0%, rgba(200, 240, 220, 0.9) 100%) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-sidebar__scrollwrap {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.9) 0%, rgba(215, 245, 235, 0.9) 100%) !important;
+      border-radius: 12px !important;
+      margin: 20px 10px !important;
+      box-shadow: 0 4px 20px rgba(26, 138, 138, 0.15) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+  </style>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-header__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DocScanner – RAG based AI Review tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Usage Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-nav__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DocScanner – RAG based AI Review tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benefits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benefits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Usage Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Usage Guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-launch-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launch DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload-your-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Upload Your Document
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Suggestions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Suggestions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Suggestions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reviewing Results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Best Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips for Best Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-results-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Results &amp; Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-your-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Understanding Your Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Understanding Your Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-enhancement-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Enhancement Indicators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-confidence-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Confidence Levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-type-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Type Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-knowledge-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Knowledge Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-processing-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Batch Processing &amp; Automation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Batch Processing & Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-document-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Document Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-integration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-pipeline-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipeline Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Customization &amp; Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Customization & Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tuning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reports-export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Reports &amp; Export Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Reports & Export Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pro-tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Pro Tips for Best Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Pro Tips for Best Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-preparation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-ai-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with AI Suggestions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Collaboration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-launch-docscanner" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Launch DocScanner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-upload-your-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Upload Your Document
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Suggestions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Suggestions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Suggestions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reviewing-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reviewing Results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report Formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Best Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips for Best Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-results-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Results &amp; Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-your-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Understanding Your Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Understanding Your Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-enhancement-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Enhancement Indicators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-confidence-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Confidence Levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-type-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Type Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-knowledge-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Knowledge Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-processing-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Batch Processing &amp; Automation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Batch Processing & Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-document-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Document Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-integration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-pipeline-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipeline Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Customization &amp; Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Customization & Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tuning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reports-export-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Reports &amp; Export Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Reports & Export Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Formats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚨 Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Help
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pro-tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Pro Tips for Best Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Pro Tips for Best Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-preparation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-ai-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with AI Suggestions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Collaboration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="usage-guide">� Usage Guide</h1>
+<p>Quick guide to using DocScanner's AI-powered document analysis.</p>
+<hr />
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="1-launch-docscanner">1. Launch DocScanner</h3>
+<ul>
+<li><strong>Local</strong>: Open <code>http://localhost:5000</code> in your browser</li>
+<li><strong>Team</strong>: Access your organization's DocScanner URL</li>
+<li><strong>First Time</strong>: System automatically detects available AI models</li>
+</ul>
+<h3 id="2-upload-your-document">2. Upload Your Document</h3>
+<p><strong>Supported Formats:</strong>
+- Microsoft Word (.docx), PDF, HTML, Markdown, Plain Text
+- <strong>Batch Upload</strong>: ZIP files with multiple documents
+- <strong>Quick Input</strong>: Copy-paste text directly</p>
+<p><strong>Upload Methods:</strong>
+- Drag &amp; drop files onto the interface
+- Click "Browse" to select files
+- Enter URLs for web page analysis</p>
+<hr />
+<h2 id="understanding-results">Understanding Results</h2>
+<h3 id="issue-types">Issue Types</h3>
+<ul>
+<li><strong>Grammar</strong>: Passive voice, subject-verb agreement, word choice</li>
+<li><strong>Style</strong>: Long sentences, readability, tone consistency  </li>
+<li><strong>Format</strong>: Punctuation, capitalization, list formatting</li>
+</ul>
+<h3 id="ai-suggestions">AI Suggestions</h3>
+<p>Each suggestion shows:
+- <strong>Issue Type</strong>: What writing problem was detected
+- <strong>Original Text</strong>: The problematic section highlighted
+- <strong>Suggested Fix</strong>: The improved version
+- <strong>Confidence Level</strong>: How reliable the suggestion is
+- <strong>Source</strong>: Which AI model provided the suggestion</p>
+<p><strong>Confidence Levels:</strong>
+- <strong>High (90%+)</strong>: Strong AI recommendation - likely correct
+- <strong>Medium (70-89%)</strong>: Good suggestion - review recommended
+- <strong>Low (&lt;70%)</strong>: Consider traditional rule-based alternative</p>
+<hr />
+<h2 id="working-with-suggestions">Working with Suggestions</h2>
+<h3 id="reviewing-results">Reviewing Results</h3>
+<ol>
+<li><strong>Focus on High Confidence First</strong> - Most likely to be helpful</li>
+<li><strong>Check Context</strong> - Ensure suggestions fit your document's purpose</li>
+<li><strong>Accept/Reject</strong> - Click buttons to apply or dismiss suggestions</li>
+<li><strong>Multiple Options</strong> - Choose between AI and traditional suggestions</li>
+</ol>
+<h3 id="making-changes">Making Changes</h3>
+<ul>
+<li><strong>Individual Edits</strong>: Accept suggestions one by one</li>
+<li><strong>Batch Apply</strong>: Select multiple suggestions to apply together</li>
+<li><strong>Manual Override</strong>: Edit text directly in the interface</li>
+<li><strong>Export Options</strong>: Download improved document in various formats</li>
+</ul>
+<hr />
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="model-selection">Model Selection</h3>
+<ul>
+<li><strong>Automatic (Default)</strong>: System chooses best model for your hardware</li>
+<li><strong>Mistral</strong>: Best balance of quality and speed</li>
+<li><strong>Llama3</strong>: Highest quality for critical documents</li>
+<li><strong>Phi3</strong>: Fast processing for high-volume work</li>
+<li><strong>TinyLLaMA</strong>: Always available, works on any system</li>
+</ul>
+<h3 id="custom-rules">Custom Rules</h3>
+<p>Add organization-specific writing guidelines:</p>
+<ol>
+<li>Go to Settings &gt; Custom Rules</li>
+<li>Add your organization's specific terms and replacements</li>
+<li>Choose categories like "branding" or "style"</li>
+<li>Save to apply across all future documents</li>
+</ol>
+<h3 id="batch-processing">Batch Processing</h3>
+<ol>
+<li><strong>Prepare Files</strong>: Package documents in a ZIP file</li>
+<li><strong>Upload Batch</strong>: System processes all documents sequentially  </li>
+<li><strong>Review Results</strong>: Access individual document analyses</li>
+<li><strong>Export All</strong>: Download all improved documents at once</li>
+</ol>
+<hr />
+<h2 id="api-integration">API Integration</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<p>The API allows you to submit documents programmatically and receive analysis results in JSON format, making it easy to integrate with existing systems.</p>
+<h3 id="cicd-integration">CI/CD Integration</h3>
+<p>You can integrate DocScanner into your development pipeline to automatically check documentation quality as part of your build process.</p>
+<hr />
+<h2 id="export-options">Export Options</h2>
+<h3 id="document-formats">Document Formats</h3>
+<ul>
+<li><strong>Clean Version</strong>: All accepted suggestions applied</li>
+<li><strong>Track Changes</strong>: Word document showing modifications</li>
+<li><strong>Comparison</strong>: Side-by-side original vs improved</li>
+</ul>
+<h3 id="report-formats">Report Formats</h3>
+<ul>
+<li><strong>PDF Summary</strong>: Professional improvement report</li>
+<li><strong>JSON Data</strong>: Machine-readable results for integration</li>
+<li><strong>CSV Analysis</strong>: Spreadsheet-compatible issue tracking</li>
+</ul>
+<hr />
+<h2 id="tips-for-best-results">Tips for Best Results</h2>
+<h3 id="document-preparation">Document Preparation</h3>
+<ul>
+<li><strong>Clean Formatting</strong>: Remove excessive styling before upload</li>
+<li><strong>Complete Content</strong>: Analyze full documents rather than fragments</li>
+<li><strong>Clear Structure</strong>: Use proper headings and organization</li>
+</ul>
+<h3 id="working-with-ai">Working with AI</h3>
+<ul>
+<li><strong>Iterative Process</strong>: Run analysis multiple times as you improve</li>
+<li><strong>Context Awareness</strong>: Consider document type and audience</li>
+<li><strong>Quality Focus</strong>: Prioritize high-confidence suggestions</li>
+</ul>
+<h3 id="team-usage">Team Usage</h3>
+<ul>
+<li><strong>Consistent Models</strong>: Use same settings across your team</li>
+<li><strong>Shared Rules</strong>: Develop organization-specific guidelines</li>
+<li><strong>Regular Training</strong>: Keep team updated on best practices</li>
+</ul>
+<hr />
+<p><strong>Need Help?</strong></p>
+<ul>
+<li><strong>Built-in Help</strong>: Press F1 for context-sensitive assistance</li>
+<li><strong>FAQ</strong>: Check <a href="../faq/">frequently asked questions</a></li>
+<li><strong>Technical Details</strong>: Learn about the <a href="../technology/">technology</a></li>
+</ul>
+<h3 id="phase-3-results-recommendations">Phase 3: Results &amp; Recommendations</h3>
+<ul>
+<li><strong>Real-time Display</strong>: Issues highlighted as analysis progresses</li>
+<li><strong>Confidence Scores</strong>: AI certainty levels for each suggestion</li>
+<li><strong>Context Awareness</strong>: Suggestions adapt to document type</li>
+<li><strong>Multiple Options</strong>: Choose between AI and traditional suggestions</li>
+</ul>
+<hr />
+<h2 id="understanding-your-results">📊 Understanding Your Results</h2>
+<h3 id="issue-classification">Issue Classification</h3>
+<p><strong>Grammar Issues:</strong>
+- Passive voice constructions
+- Subject-verb disagreements
+- Incorrect word usage</p>
+<p><strong>Style Issues:</strong>
+- Long, complex sentences
+- Inconsistent terminology
+- Inappropriate tone</p>
+<p><strong>Readability Issues:</strong>
+- Dense paragraphs
+- Complex vocabulary
+- Poor structure</p>
+<h3 id="ai-enhancement-indicators">AI Enhancement Indicators</h3>
+<p>When AI makes suggestions, you'll see:
+- <strong>Issue Type</strong>: What problem was detected (e.g., passive voice)
+- <strong>Original</strong>: The problematic text highlighted
+- <strong>AI Suggestion</strong>: The improved version
+- <strong>Confidence</strong>: How sure the AI is about the suggestion
+- <strong>Model Used</strong>: Which AI model provided the suggestion
+- <strong>Method</strong>: Shows it came from local AI processing</p>
+<h3 id="understanding-confidence-levels">Understanding Confidence Levels</h3>
+<ul>
+<li><strong>High (90%+)</strong>: AI very confident in suggestion</li>
+<li><strong>Medium (70-89%)</strong>: Good suggestion, manual review recommended</li>
+<li><strong>Low (&lt;70%)</strong>: Consider traditional rule-based suggestion instead</li>
+</ul>
+<hr />
+<h2 id="advanced-features_1">🎯 Advanced Features</h2>
+<h3 id="document-type-optimization">Document Type Optimization</h3>
+<p><strong>Technical Documentation:</strong>
+- Emphasis on clarity and precision
+- Active voice preferences
+- Consistent terminology</p>
+<p><strong>Marketing Content:</strong>
+- Engaging language suggestions
+- Audience-appropriate tone
+- Brand consistency checks</p>
+<p><strong>Legal Documents:</strong>
+- Formal language maintenance
+- Precision over simplicity
+- Traditional structure preservation</p>
+<h3 id="custom-knowledge-integration">Custom Knowledge Integration</h3>
+<ol>
+<li><strong>Access Settings</strong>: Click "Customize Rules" in the interface</li>
+<li><strong>Add Custom Rules</strong>: Define organization-specific guidelines for terms, replacements, and categories like brand consistency</li>
+<li><strong>Test Rules</strong>: Validate custom rules with sample documents  </li>
+<li><strong>Deploy</strong>: Apply to all future document analysis</li>
+</ol>
+<hr />
+<h2 id="batch-processing-automation">📈 Batch Processing &amp; Automation</h2>
+<h3 id="multiple-document-analysis">Multiple Document Analysis</h3>
+<ol>
+<li><strong>Zip Upload</strong>: Package multiple documents in a single ZIP file</li>
+<li><strong>Batch Analysis</strong>: System processes all documents sequentially</li>
+<li><strong>Consolidated Report</strong>: Single report covering all documents</li>
+<li><strong>Individual Files</strong>: Access specific document results</li>
+</ol>
+<h3 id="api-integration_1">API Integration</h3>
+<p>For developers, DocScanner provides a simple API that accepts document uploads and returns analysis results. This allows integration with existing workflows and automation systems.</p>
+<h3 id="cicd-pipeline-integration">CI/CD Pipeline Integration</h3>
+<p>DocScanner can be integrated into your development pipeline to automatically check documentation quality as part of your build process.</p>
+<hr />
+<h2 id="customization-settings">🔧 Customization &amp; Settings</h2>
+<h3 id="model-preferences">Model Preferences</h3>
+<p><strong>Automatic Selection (Recommended):</strong>
+- System chooses optimal model for your hardware
+- Balances quality and performance</p>
+<p><strong>Manual Selection:</strong>
+- <strong>Mistral</strong>: Best overall quality and speed balance
+- <strong>Phi3</strong>: Memory-efficient for resource-constrained systems
+- <strong>Llama3</strong>: Maximum quality for critical documents
+- <strong>TinyLLaMA</strong>: Fastest processing, always available</p>
+<h3 id="performance-tuning">Performance Tuning</h3>
+<p><strong>Memory Settings:</strong>
+- Adjust model loading based on available RAM
+- Configure concurrent processing limits
+- Set cache preferences for frequently used rules</p>
+<p><strong>Response Time Optimization:</strong>
+- Enable model pre-loading for faster startup
+- Configure background processing for large documents
+- Set timeout limits for AI suggestions</p>
+<hr />
+<h2 id="reports-export-options">📋 Reports &amp; Export Options</h2>
+<h3 id="interactive-reports">Interactive Reports</h3>
+<ul>
+<li><strong>Live Editing</strong>: Make changes directly in the interface</li>
+<li><strong>Before/After</strong>: Compare original vs. improved text</li>
+<li><strong>Issue Tracking</strong>: Mark suggestions as accepted/rejected</li>
+<li><strong>Progress Metrics</strong>: See improvement statistics</li>
+</ul>
+<h3 id="export-formats">Export Formats</h3>
+<p><strong>Document Formats:</strong>
+- <strong>Clean Version</strong>: Document with all suggestions applied
+- <strong>Track Changes</strong>: Word document showing all modifications
+- <strong>Side-by-Side</strong>: Original and improved versions compared</p>
+<p><strong>Report Formats:</strong>
+- <strong>PDF Summary</strong>: Professional report for stakeholders
+- <strong>JSON Data</strong>: Machine-readable results for integration
+- <strong>CSV Analysis</strong>: Spreadsheet-compatible issue tracking
+- <strong>HTML Report</strong>: Web-viewable detailed analysis</p>
+<hr />
+<h2 id="troubleshooting">🚨 Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>AI Model Not Loading:</strong>
+1. Check available disk space (12GB+ recommended)
+2. Verify Ollama installation and service status
+3. Try switching to TinyLLaMA for minimal requirements</p>
+<p><strong>Slow Performance:</strong>
+1. Close unnecessary applications to free RAM
+2. Switch to a smaller model (Phi3 instead of Llama3)
+3. Enable document pre-processing for large files</p>
+<p><strong>Inconsistent Suggestions:</strong>
+1. Check confidence scores - ignore low confidence suggestions
+2. Verify document type is correctly detected
+3. Consider adding custom rules for domain-specific content</p>
+<h3 id="getting-help">Getting Help</h3>
+<ul>
+<li><strong>Built-in Help</strong>: Press F1 for context-sensitive assistance</li>
+<li><strong>System Status</strong>: Check model availability and performance metrics</li>
+<li><strong>Logs</strong>: Review processing logs for detailed error information</li>
+<li><strong>Community</strong>: Access user forums and documentation</li>
+</ul>
+<hr />
+<h2 id="pro-tips-for-best-results">💡 Pro Tips for Best Results</h2>
+<h3 id="document-preparation_1">Document Preparation</h3>
+<ul>
+<li><strong>Clean Formatting</strong>: Remove excessive styling before upload</li>
+<li><strong>Clear Structure</strong>: Use proper headings and sections</li>
+<li><strong>Complete Context</strong>: Include full documents rather than fragments</li>
+</ul>
+<h3 id="working-with-ai-suggestions">Working with AI Suggestions</h3>
+<ul>
+<li><strong>Review Confidence</strong>: Focus on high-confidence suggestions first</li>
+<li><strong>Context Check</strong>: Ensure suggestions fit the document's purpose</li>
+<li><strong>Iterative Process</strong>: Run analysis multiple times as you improve content</li>
+</ul>
+<h3 id="team-collaboration">Team Collaboration</h3>
+<ul>
+<li><strong>Shared Rules</strong>: Develop organization-specific rule sets</li>
+<li><strong>Consistent Models</strong>: Use the same model settings across team</li>
+<li><strong>Version Control</strong>: Track document improvements over time</li>
+</ul>
+<hr />
+<h2 id="next-steps">🎯 Next Steps</h2>
+<ol>
+<li><strong>Start Simple</strong>: Begin with a single document to learn the interface</li>
+<li><strong>Explore Models</strong>: Try different AI models to see which works best</li>
+<li><strong>Customize Rules</strong>: Add your organization's specific requirements</li>
+<li><strong>Scale Up</strong>: Integrate into your documentation workflow</li>
+<li><strong>Share Knowledge</strong>: Train team members on best practices</li>
+</ol>
+<p>Ready to revolutionize your writing process with enterprise-grade AI assistance that runs completely private on your infrastructure!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/background-fix.js"></script>
+      
+    
+  </body>
+</html>

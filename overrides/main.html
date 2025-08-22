@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    /* FORCE BACKGROUND OVERRIDE - INLINE STYLES HAVE HIGHEST PRIORITY */
+    html, body {
+      background: linear-gradient(135deg, #d4f1d4 0%, #e1f5fe 50%, #c8e6ff 100%) !important;
+      min-height: 100vh !important;
+    }
+    
+    .md-container {
+      background: transparent !important;
+    }
+    
+    .md-main {
+      background: transparent !important;
+    }
+    
+    .md-main__inner {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.95) 0%, rgba(210, 245, 235, 0.95) 50%, rgba(220, 245, 255, 0.95) 100%) !important;
+      border-radius: 15px !important;
+      margin: 20px 10px !important;
+      max-width: none !important;
+      box-shadow: 0 8px 32px rgba(26, 138, 138, 0.2) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-content {
+      background: transparent !important;
+      padding: 30px !important;
+      max-width: none !important;
+    }
+    
+    .md-grid {
+      background: transparent !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    
+    .md-container {
+      max-width: none !important;
+    }
+    
+    /* Override any white backgrounds */
+    .md-typeset, .md-content__inner, article {
+      background: transparent !important;
+    }
+    
+    /* Text colors */
+    .md-typeset {
+      color: #333333 !important;
+    }
+    
+    .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      color: #1a8a8a !important;
+    }
+    
+    /* Navigation */
+    .md-nav {
+      background: linear-gradient(135deg, rgba(225, 245, 254, 0.9) 0%, rgba(200, 240, 220, 0.9) 100%) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-sidebar__scrollwrap {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.9) 0%, rgba(215, 245, 235, 0.9) 100%) !important;
+      border-radius: 12px !important;
+      margin: 20px 10px !important;
+      box-shadow: 0 4px 20px rgba(26, 138, 138, 0.15) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+  </style>
+{% endblock %}

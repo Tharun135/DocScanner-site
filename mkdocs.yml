@@ -1,6 +1,24 @@
 site_name: DocScanner – RAG based AI Review tool
 theme:
-  name: material   # or your org theme
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.top
+    - content.code.copy
 
 nav:
   - Home: index.md
@@ -8,9 +26,12 @@ nav:
   - Technology: technology.md
   - Usage Guide: usage.md
   - Installation: how-to-use.md
+  - Benefits: benefits.md
+  - Performance Measures: performance-measures.md
   - FAQ: faq.md
 
 markdown_extensions:
+  - attr_list
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -18,7 +39,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 
 extra_css:
-  - stylesheets/extra.css
+  - assets/stylesheets/extra.css
 
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  - javascripts/background-fix.js

@@ -1,0 +1,1865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../benefits/">
+      
+      
+        <link rel="next" href="../usage/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Technology - DocScanner – RAG based AI Review tool</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+  <style>
+    /* FORCE BACKGROUND OVERRIDE - INLINE STYLES HAVE HIGHEST PRIORITY */
+    html, body {
+      background: linear-gradient(135deg, #d4f1d4 0%, #e1f5fe 50%, #c8e6ff 100%) !important;
+      min-height: 100vh !important;
+    }
+    
+    .md-container {
+      background: transparent !important;
+    }
+    
+    .md-main {
+      background: transparent !important;
+    }
+    
+    .md-main__inner {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.95) 0%, rgba(210, 245, 235, 0.95) 50%, rgba(220, 245, 255, 0.95) 100%) !important;
+      border-radius: 15px !important;
+      margin: 20px 10px !important;
+      max-width: none !important;
+      box-shadow: 0 8px 32px rgba(26, 138, 138, 0.2) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-content {
+      background: transparent !important;
+      padding: 30px !important;
+      max-width: none !important;
+    }
+    
+    .md-grid {
+      background: transparent !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+    
+    .md-container {
+      max-width: none !important;
+    }
+    
+    /* Override any white backgrounds */
+    .md-typeset, .md-content__inner, article {
+      background: transparent !important;
+    }
+    
+    /* Text colors */
+    .md-typeset {
+      color: #333333 !important;
+    }
+    
+    .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      color: #1a8a8a !important;
+    }
+    
+    /* Navigation */
+    .md-nav {
+      background: linear-gradient(135deg, rgba(225, 245, 254, 0.9) 0%, rgba(200, 240, 220, 0.9) 100%) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+    
+    .md-sidebar__scrollwrap {
+      background: linear-gradient(135deg, rgba(230, 248, 255, 0.9) 0%, rgba(215, 245, 235, 0.9) 100%) !important;
+      border-radius: 12px !important;
+      margin: 20px 10px !important;
+      box-shadow: 0 4px 20px rgba(26, 138, 138, 0.15) !important;
+      border: 1px solid rgba(26, 138, 138, 0.15) !important;
+    }
+  </style>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#technology-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-header__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DocScanner – RAG based AI Review tool
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Technology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DocScanner – RAG based AI Review tool" class="md-nav__button md-logo" aria-label="DocScanner – RAG based AI Review tool" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DocScanner – RAG based AI Review tool
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benefits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benefits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Technology
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Technology
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ System Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-traditional-rule-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 1: Traditional Rule Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-2-rag-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 2: RAG Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-3-smart-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 3: Smart Fallback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-model-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤖 AI Model Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤖 AI Model Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-model-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Model Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-base-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Knowledge Base Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Knowledge Base Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-database-chromadb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Database (ChromaDB)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-base-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Base Sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 RAG Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 RAG Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Privacy &amp; Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Privacy & Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡ Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Integration Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Integration Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restful-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESTful API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Monitoring &amp; Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Monitoring & Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Health
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔌 Integration Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 Integration Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rule-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rule Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-web-interface-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Web Interface Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-example-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Real Example: How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Real Example: How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rule-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rule Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Vector Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ai-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. AI Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Privacy &amp; Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Privacy & Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Privacy:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-specs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Specs:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-document-type-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Document Type Awareness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-multi-model-fallback-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Multi-Model Fallback Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-custom-knowledge-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Custom Knowledge Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-system-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Current System Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 What This Means For You
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tech Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tech Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ System Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tier-1-traditional-rule-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 1: Traditional Rule Engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-2-rag-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 2: RAG Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tier-3-smart-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tier 3: Smart Fallback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-model-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤖 AI Model Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤖 AI Model Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-model-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Model Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ollama Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-base-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Knowledge Base Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Knowledge Base Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-database-chromadb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Database (ChromaDB)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowledge-base-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Base Sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 RAG Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 RAG Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Process
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ Privacy &amp; Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Privacy & Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚡ Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processing-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Integration Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Integration Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restful-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      RESTful API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Monitoring &amp; Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Monitoring & Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Health
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔌 Integration Points
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 Integration Points">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rule-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rule Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-web-interface-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Web Interface Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-example-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Real Example: How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Real Example: How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rule-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rule Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Vector Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ai-enhancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. AI Enhancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Privacy &amp; Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Privacy & Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Privacy:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-specs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Specs:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-document-type-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Document Type Awareness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-multi-model-fallback-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Multi-Model Fallback Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-custom-knowledge-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Custom Knowledge Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-system-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Current System Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 What This Means For You
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tech-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tech Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tech Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="technology-architecture">🔧 Technology Architecture</h1>
+<p>Deep dive into DocScanner's 3-tier RAG architecture and local AI implementation.</p>
+<hr />
+<h2 id="system-architecture">🏗️ System Architecture</h2>
+<p>DocScanner uses a revolutionary 3-tier approach that combines traditional rule-based analysis with cutting-edge RAG technology.</p>
+<pre class="mermaid"><code>graph TB
+    A[Document Upload] --&gt; B[Traditional Rules Engine]
+    B --&gt; C[39+ Writing Rules Applied]
+    C --&gt; D[RAG Enhancement Layer]
+    D --&gt; E[Vector Knowledge Search]
+    E --&gt; F[Local AI Processing]
+    F --&gt; G[Enhanced Suggestions]
+    G --&gt; H[Smart Fallback System]</code></pre>
+<h3 id="tier-1-traditional-rule-engine">Tier 1: Traditional Rule Engine</h3>
+<p><strong>Built-in Writing Rules (39+):</strong></p>
+<ul>
+<li><strong>Grammar Rules</strong>: Passive voice, subject-verb agreement, word choice</li>
+<li><strong>Style Rules</strong>: Sentence length, readability, consistency</li>
+<li><strong>Format Rules</strong>: Punctuation, capitalization, structure</li>
+</ul>
+<p><strong>Implementation:</strong>
+- spaCy NLP for dependency parsing
+- Regex patterns for style detection
+- Statistical analysis for readability metrics</p>
+<h3 id="tier-2-rag-enhancement">Tier 2: RAG Enhancement</h3>
+<p><strong>Knowledge Base Integration:</strong></p>
+<p>DocScanner searches through its knowledge base to find the most relevant writing rules for your specific situation. It then uses local AI to create personalized suggestions that understand your document's context and purpose.</p>
+<p>The system combines:
+- Context understanding from your document
+- Relevant writing rules from the knowledge base<br />
+- AI-powered suggestion generation
+- Quality scoring to ensure reliability</p>
+<h3 id="tier-3-smart-fallback">Tier 3: Smart Fallback</h3>
+<p><strong>Reliability Guarantee:</strong></p>
+<p>If the AI system encounters any issues or if the confidence level is too low, DocScanner automatically falls back to traditional rule-based suggestions. This ensures you always get helpful feedback, no matter what.</p>
+<hr />
+<h2 id="ai-model-integration">🤖 AI Model Integration</h2>
+<h3 id="local-model-support">Local Model Support</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Parameters</th>
+<th>Size</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mistral</strong></td>
+<td>7B</td>
+<td>4.4GB</td>
+<td>Balanced quality/speed</td>
+</tr>
+<tr>
+<td><strong>Llama3</strong></td>
+<td>8B</td>
+<td>4.7GB</td>
+<td>Maximum quality</td>
+</tr>
+<tr>
+<td><strong>Phi3</strong></td>
+<td>3.8B</td>
+<td>2.2GB</td>
+<td>Resource-efficient</td>
+</tr>
+<tr>
+<td><strong>TinyLLaMA</strong></td>
+<td>1.1B</td>
+<td>637MB</td>
+<td>Always available</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ollama-integration">Ollama Integration</h3>
+<p>DocScanner uses Ollama to run AI models locally on your computer. This means:</p>
+<ul>
+<li><strong>Privacy First</strong> - Your documents never go to external servers</li>
+<li><strong>Always Available</strong> - No internet connection required after setup</li>
+<li><strong>Multiple Models</strong> - Choose the best model for your hardware</li>
+<li><strong>Automatic Management</strong> - DocScanner handles all the technical details</li>
+</ul>
+<h3 id="automatic-model-selection">Automatic Model Selection</h3>
+<p>DocScanner automatically chooses the best AI model based on your computer's memory:</p>
+<ul>
+<li><strong>8GB+ RAM</strong> - Uses Llama3 for highest quality suggestions</li>
+<li><strong>4GB+ RAM</strong> - Uses Mistral for balanced performance</li>
+<li><strong>2GB+ RAM</strong> - Uses Phi3 for efficient processing</li>
+<li><strong>Any System</strong> - TinyLLaMA works on minimal hardware</li>
+</ul>
+<hr />
+<h2 id="knowledge-base-architecture">📚 Knowledge Base Architecture</h2>
+<h3 id="vector-database-chromadb">Vector Database (ChromaDB)</h3>
+<p><strong>Writing Rules Storage:</strong></p>
+<p>DocScanner stores all writing rules in a special database that understands the meaning of text. When you upload a document, the system searches this database to find the most relevant rules for your specific writing issues.</p>
+<p>The database contains:
+- Writing rule descriptions and examples
+- Categories for different types of issues
+- Context information about when to apply each rule
+- Examples of good and bad writing patterns</p>
+<h3 id="knowledge-base-sources">Knowledge Base Sources</h3>
+<p><strong>Built-in Rules:</strong></p>
+<ul>
+<li>Grammar rules with examples</li>
+<li>Style guidelines</li>
+<li>Format standards</li>
+<li>Readability principles</li>
+</ul>
+<p><strong>Custom Knowledge:</strong></p>
+<ul>
+<li>Organization style guides</li>
+<li>Industry-specific terminology</li>
+<li>Historical document patterns</li>
+<li>Brand voice guidelines</li>
+</ul>
+<hr />
+<h2 id="rag-workflow">🔄 RAG Workflow</h2>
+<h3 id="step-by-step-process">Step-by-Step Process</h3>
+<p><strong>1. Issue Detection:</strong> Traditional rules scan your document and find potential writing issues</p>
+<p><strong>2. Knowledge Search:</strong> The system searches the knowledge base for the most relevant writing rules</p>
+<p><strong>3. Context Building:</strong> DocScanner gathers information about your document type and the specific writing issue</p>
+<p><strong>4. AI Generation:</strong> The local AI model creates personalized suggestions based on all the collected information</p>
+<p><strong>5. Quality Control:</strong> If the AI suggestion meets quality standards, it's presented to you. Otherwise, the system uses traditional rule-based suggestions</p>
+<hr />
+<h2 id="privacy-security">🛡️ Privacy &amp; Security</h2>
+<h3 id="local-processing">Local Processing</h3>
+<p><strong>Complete Privacy:</strong>
+- All AI models run locally via Ollama
+- No external API calls for analysis
+- Documents never leave your infrastructure
+- Zero data collection or telemetry</p>
+<p><strong>Data Flow:</strong></p>
+<p>Document → Local Analysis → Local AI → Results (Nothing transmitted externally)</p>
+<h3 id="security-architecture">Security Architecture</h3>
+<p><strong>Encryption:</strong>
+- Documents encrypted at rest
+- HTTPS for all communications
+- Secure session management</p>
+<p><strong>Access Control:</strong>
+- Role-based permissions
+- Authentication integration (LDAP, SAML)
+- Audit logging for compliance</p>
+<hr />
+<h2 id="performance-optimization">⚡ Performance Optimization</h2>
+<h3 id="processing-speed">Processing Speed</h3>
+<p><strong>Typical Performance:</strong>
+- Small documents (1-5 pages): 5-15 seconds
+- Medium documents (10-20 pages): 30-60 seconds
+- Large documents (50+ pages): 2-5 minutes</p>
+<p><strong>Optimization Techniques:</strong>
+- Parallel rule processing
+- Model pre-loading
+- Result caching
+- Background processing</p>
+<h3 id="resource-management">Resource Management</h3>
+<p><strong>Memory Usage:</strong></p>
+<p>DocScanner automatically manages system resources by selecting the appropriate AI model based on available memory. It monitors your system and chooses the best model that will run smoothly without affecting other applications.</p>
+<p><strong>CPU Optimization:</strong></p>
+<ul>
+<li>Multi-threading for rule processing</li>
+<li>Async processing for AI requests  </li>
+<li>Queue management for batch jobs</li>
+</ul>
+<hr />
+<h2 id="integration-architecture">🔧 Integration Architecture</h2>
+<h3 id="restful-api">RESTful API</h3>
+<p>DocScanner provides a simple API that allows other applications to analyze documents programmatically. The API handles file uploads, model selection, and returns structured results that can be easily integrated into existing workflows.</p>
+<h3 id="webhook-support">Webhook Support</h3>
+<p>DocScanner can notify external systems when document analysis is complete, allowing integration with workflow management systems and automated processes.</p>
+<hr />
+<h2 id="monitoring-analytics">📊 Monitoring &amp; Analytics</h2>
+<h3 id="system-health">System Health</h3>
+<p>DocScanner provides built-in monitoring that tracks:
+- Available models and their status
+- Memory usage and system resources
+- Processing queue length and performance
+- Average response times for different operations</p>
+<h3 id="performance-metrics">Performance Metrics</h3>
+<ul>
+<li>Document processing throughput</li>
+<li>Model response times</li>
+<li>Memory utilization</li>
+<li>Error rates and success metrics</li>
+</ul>
+<hr />
+<p><strong>Want to explore the features built on this architecture?</strong></p>
+<p><a href="../features/">View Features →</a> | <a href="../usage/">Usage Guide →</a>
+1. Try Mistral (best balance of quality/speed)
+2. Fall back to Phi3 if memory constrained
+3. Use TinyLLaMA as guaranteed working option
+4. Use rule-based suggestions if all AI fails</p>
+<hr />
+<h2 id="integration-points">🔌 Integration Points</h2>
+<h3 id="1-rule-integration">1. Rule Integration</h3>
+<p>Every writing rule in DocScanner now uses this enhanced approach:</p>
+<p><strong>Before</strong>: Simple rule detection that only identifies problems
+<strong>After</strong>: RAG-enhanced system with smart fallback that provides context-aware suggestions</p>
+<p>If RAG system is available, it provides intelligent suggestions. If not, traditional rule-based suggestions ensure you always get helpful feedback.</p>
+<h3 id="2-web-interface-integration">2. Web Interface Integration</h3>
+<p>The frontend now displays enhanced suggestions with confidence levels and source information, helping users understand whether suggestions come from AI analysis or traditional rules.</p>
+<hr />
+<h2 id="real-example-how-it-works">🎯 Real Example: How It Works</h2>
+<h3 id="input-document">Input Document</h3>
+<p>"The configuration settings were updated by the development team."</p>
+<h3 id="processing-steps">Processing Steps</h3>
+<h4 id="1-rule-detection">1. Rule Detection</h4>
+<ul>
+<li><strong>Issue</strong>: Passive voice detected ("were updated by")</li>
+<li><strong>Rule</strong>: Traditional grammar rule identifies passive voice structure</li>
+</ul>
+<h4 id="2-vector-search">2. Vector Search</h4>
+<p>The system searches the knowledge base for rules about passive voice conversion and finds relevant examples and patterns.</p>
+<h4 id="3-ai-enhancement">3. AI Enhancement</h4>
+<ul>
+<li><strong>Prompt</strong>: Local AI model receives context about fixing passive voice</li>
+<li><strong>Result</strong>: "The development team updated the configuration settings."</li>
+</ul>
+<h4 id="4-output">4. Output</h4>
+<p>DocScanner presents the original text, suggested improvement, confidence level, and explains that it came from local AI processing.</p>
+<hr />
+<h2 id="privacy-performance">🔒 Privacy &amp; Performance</h2>
+<h3 id="complete-privacy">Complete Privacy:</h3>
+<p>✅ <strong>100% Local Processing</strong> - No cloud calls, ever<br />
+✅ <strong>No Data Upload</strong> - Documents stay on your machine<br />
+✅ <strong>Offline Capable</strong> - Works without internet<br />
+✅ <strong>Zero Tracking</strong> - No usage analytics or logging</p>
+<h3 id="performance-specs">Performance Specs:</h3>
+<ul>
+<li><strong>Response Time</strong>: ~1 second per suggestion</li>
+<li><strong>Memory Usage</strong>: ~2GB (with TinyLLaMA loaded)</li>
+<li><strong>CPU</strong>: Light usage, runs on modest hardware</li>
+<li><strong>Storage</strong>: ~12GB total (models + dependencies)</li>
+</ul>
+<hr />
+<h2 id="advanced-features">🚀 Advanced Features</h2>
+<h3 id="1-document-type-awareness">1. Document Type Awareness</h3>
+<p>DocScanner adapts suggestions based on your document type:</p>
+<ul>
+<li><strong>Technical Documents</strong>: Focuses on clarity and precision</li>
+<li><strong>Marketing Materials</strong>: Emphasizes engagement and readability  </li>
+<li><strong>Legal Documents</strong>: Maintains formal tone and accuracy</li>
+<li><strong>General Writing</strong>: Balances all aspects for broad appeal</li>
+</ul>
+<h3 id="2-multi-model-fallback-chain">2. Multi-Model Fallback Chain</h3>
+<p>DocScanner tries multiple AI models to ensure you always get suggestions, automatically falling back through the chain until one works.</p>
+<h3 id="3-custom-knowledge-integration">3. Custom Knowledge Integration</h3>
+<p>You can upload your organization's specific writing guidelines, and DocScanner will incorporate them into its suggestions.</p>
+<hr />
+<h2 id="current-system-status">📊 Current System Status</h2>
+<p>Based on the test results:</p>
+<p>✅ <strong>RAG System</strong>: Operational with Ollama + ChromaDB + LlamaIndex<br />
+✅ <strong>Models Available</strong>: Mistral, Phi3, Llama3, TinyLLaMA<br />
+✅ <strong>Rule Integration</strong>: All 39+ rules enhanced with RAG capability<br />
+✅ <strong>Smart Fallback</strong>: Works even when AI models unavailable<br />
+✅ <strong>Privacy</strong>: 100% local processing, no external dependencies<br />
+✅ <strong>Performance</strong>: ~1 second response time for AI suggestions</p>
+<hr />
+<h2 id="what-this-means-for-you">💡 What This Means For You</h2>
+<p>Your DocScanner is now a sophisticated AI writing assistant that:</p>
+<p><strong>🎯 Understands Context</strong> - Not just grammar rules, but document-wide context<br />
+<strong>📚 Learns from Expertise</strong> - 39+ writing rules converted to AI knowledge<br />
+<strong>🔒 Protects Privacy</strong> - Everything runs locally, documents never leave your machine<br />
+<strong>🤖 Adapts Intelligently</strong> - Uses best available AI model, falls back gracefully<br />
+<strong>💰 Costs Nothing</strong> - No subscription fees or API costs after initial setup<br />
+<strong>📈 Scales Gracefully</strong> - Works on modest hardware, handles large documents</p>
+<p><strong>Bottom Line</strong>: You now have enterprise-grade AI writing assistance that rivals cloud services like Grammarly, but runs privately on your own computer with the latest AI models!</p>
+<hr />
+<h2 id="tech-stack">Tech Stack</h2>
+<ul>
+<li><strong>LLM Runtime</strong>: Ollama + Multiple Models (Mistral/Phi3/Llama3/TinyLLaMA)</li>
+<li><strong>Vector Storage</strong>: ChromaDB for semantic search</li>
+<li><strong>RAG Framework</strong>: LlamaIndex for intelligent retrieval</li>
+<li><strong>Backend</strong>: Python, Flask, spaCy for NLP</li>
+<li><strong>Custom Rule Engine</strong>: 39+ writing rules with vector embeddings</li>
+<li><strong>Frontend/Docs</strong>: MkDocs with Material theme</li>
+</ul>
+<h3 id="workflow-diagram">Workflow Diagram</h3>
+<pre class="mermaid"><code>graph TD
+    A[User Document] --&gt; B[Document Processing]
+    B --&gt; C[Issue Detection - 39+ Rules]
+    C --&gt; D[Vector Search - ChromaDB]
+    D --&gt; E[RAG Enhancement - Local AI]
+    E --&gt; F[Smart Fallback Logic]
+    F --&gt; G[Enhanced Suggestions]
+    G --&gt; H[User Feedback &amp; Export]
+
+    style A fill:#e1f5fe
+    style G fill:#e8f5e8
+    style E fill:#fff3e0</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/background-fix.js"></script>
+      
+    
+  </body>
+</html>
