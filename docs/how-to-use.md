@@ -1,3 +1,13 @@
+<style>
+/* Universal black text override for this page */
+* { color: #000000 !important; text-align: left !important; }
+p { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+h1, h2, h3, h4, h5, h6 { color: #000000 !important; font-weight: 700 !important; text-align: left !important; }
+.md-typeset p { color: #000000 !important; text-align: left !important; }
+li { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+.md-content, .md-typeset { text-align: left !important; }
+</style>
+
 # ⚙️ Installation & Setup Guide
 
 Step-by-step instructions to get DocScanner running on your computer.
@@ -9,6 +19,7 @@ Step-by-step instructions to get DocScanner running on your computer.
 ### What You Need
 
 **Minimum Requirements:**
+
 - 8GB RAM (memory)
 - 4-core processor
 - 20GB free storage space
@@ -16,6 +27,7 @@ Step-by-step instructions to get DocScanner running on your computer.
 - Internet connection (only for initial setup)
 
 **Recommended for Best Performance:**
+
 - 16GB RAM or more
 - 8-core processor
 - SSD storage with 50GB free space
@@ -98,21 +110,25 @@ DocScanner includes several AI models. Don't worry - it automatically picks the 
 ### Available Models
 
 **Mistral** (Recommended)
+
 - Best balance of quality and speed
 - Works well on most computers
 - 4.4GB download size
 
 **Llama3** (High Quality)
+
 - Highest quality suggestions
 - Needs more computer power
 - 4.7GB download size
 
 **Phi3** (Fast)
+
 - Quick processing
 - Good for older computers
 - 2.2GB download size
 
 **TinyLLaMA** (Always Works)
+
 - Works on any computer
 - Basic but reliable suggestions
 - 637MB download size
@@ -135,6 +151,7 @@ DocScanner includes several AI models. Don't worry - it automatically picks the 
 ### Supported File Types
 
 DocScanner works with:
+
 - Microsoft Word documents (.docx)
 - PDF files
 - Text files (.txt)
@@ -149,24 +166,28 @@ DocScanner works with:
 ### Common Issues
 
 **DocScanner won't start:**
+
 1. Restart your computer
 2. Check you have enough free disk space (20GB+)
 3. Disable antivirus temporarily during setup
 4. Run as administrator (Windows) or with sudo (Linux)
 
 **AI models won't download:**
+
 1. Check your internet connection
 2. Disable firewall temporarily
 3. Try again later (servers might be busy)
 4. Contact support if problem persists
 
 **Browser shows "Connection failed":**
+
 1. Wait a few more minutes (DocScanner might still be starting)
 2. Try refreshing the page
 3. Check if another application is using port 5000
 4. Restart DocScanner
 
 **Suggestions are slow or poor quality:**
+
 1. Close other programs to free up memory
 2. Try a different AI model in settings
 3. Process smaller documents
@@ -175,16 +196,19 @@ DocScanner works with:
 ### Getting Help
 
 **Built-in Help:**
+
 - Press F1 in DocScanner for context-sensitive help
 - Check the status indicator for system health
 - Look for error messages in the interface
 
 **Documentation:**
+
 - Read the Usage Guide for detailed instructions
 - Check FAQ for common questions
 - Review Features list for capabilities
 
 **Support Options:**
+
 - Contact technical support
 - Join the user community forum
 - Check the knowledge base online
@@ -196,12 +220,14 @@ DocScanner works with:
 ### Installing for Multiple Users
 
 **Small Teams (2-10 people):**
+
 1. Install DocScanner on a shared computer or server
 2. Team members access via web browser
 3. Set up user accounts and permissions
 4. Configure shared custom rules
 
 **Large Organizations:**
+
 1. Contact support for enterprise deployment
 2. Use Docker containers for scalability
 3. Integrate with existing authentication systems
@@ -210,12 +236,14 @@ DocScanner works with:
 ### Security Considerations
 
 **Data Privacy:**
+
 - All processing happens on your computers
 - No data is sent to external servers
 - Documents never leave your network
 - Complete offline operation after setup
 
 **Access Control:**
+
 - Set up user accounts and passwords
 - Configure role-based permissions
 - Enable audit logging for compliance
@@ -228,12 +256,14 @@ DocScanner works with:
 ### Performance Optimization
 
 **For Faster Processing:**
+
 1. Use SSD storage instead of traditional hard drives
 2. Add more RAM to your computer
 3. Close unnecessary applications
 4. Select faster AI models in settings
 
 **For Better Quality:**
+
 1. Use higher-quality AI models
 2. Add custom rules for your organization
 3. Train the system with your preferred style
@@ -242,12 +272,14 @@ DocScanner works with:
 ### Customization Options
 
 **Organization Rules:**
+
 - Add company-specific terminology
 - Define style guidelines
 - Set up brand consistency checks
 - Create industry-specific rules
 
 **Integration Setup:**
+
 - Connect with document management systems
 - Set up automated processing workflows
 - Configure notifications and alerts
@@ -281,8 +313,8 @@ DocScanner works with:
 
 **Ready to improve your writing?**
 
-[Start Using DocScanner →](usage.md){ .md-button .md-button--primary }
-
-[Troubleshooting Help →](faq.md){ .md-button }
-
-[See What's Possible →](features.md){ .md-button }
+<div style="text-align: center; margin-top: 20px;">
+  <a href="/usage/" class="md-button md-button--primary">Start Using DocScanner →</a>
+  <a href="/faq/" class="md-button">Troubleshooting Help →</a>
+  <a href="/features/" class="md-button">See What's Possible →</a>
+</div>

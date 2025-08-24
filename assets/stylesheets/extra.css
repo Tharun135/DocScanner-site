@@ -1,0 +1,660 @@
+/* Global text alignment - default to left */
+.md-content,
+.md-content .md-typeset,
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4,
+.md-content h5,
+.md-content h6,
+.md-content p,
+.md-content li,
+.md-content blockquote {
+    text-align: left !important;
+}
+
+/* Keep workflow section centered */
+.workflow-grid,
+.workflow-card {
+    text-align: center !important;
+}
+
+/* Keep call-to-action section centered */
+.md-content div[style*="text-align: center"] {
+    text-align: center !important;
+}
+
+.md-content div[style*="text-align: center"] * {
+    text-align: center !important;
+}
+
+/* Explore Each Step Heading Animation */
+.explore-heading {
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.explore-heading:hover {
+    transform: scale(1.2) translateY(-5px);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1.2) translateY(-5px);
+    }
+    40% {
+        transform: scale(1.25) translateY(-8px);
+    }
+    60% {
+        transform: scale(1.15) translateY(-3px);
+    }
+}
+
+/* Interactive Workflow Cards */
+.workflow-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    color: #000000 !important; /* Pure black text for maximum contrast */
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8); /* Light text shadow for readability */
+}
+
+.workflow-card h4 {
+    color: #000000 !important; /* Pure black heading text */
+    font-weight: 700 !important; /* Extra bold */
+    margin-bottom: 12px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+}
+
+.workflow-card p {
+    color: #000000 !important; /* Pure black paragraph text */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+    font-weight: 600 !important; /* Bolder text */
+}
+
+.workflow-card .md-button--primary {
+    background-color: rgba(0,0,0,0.8) !important;
+    color: white !important;
+    border: none;
+    font-weight: 500;
+    text-shadow: none;
+    text-decoration: none !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+    z-index: 10; /* Ensure buttons are clickable */
+    pointer-events: auto; /* Make sure buttons are clickable */
+}
+
+.workflow-card .md-button--primary:hover {
+    background-color: rgba(0,0,0,0.9) !important;
+    transform: translateY(-2px);
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.workflow-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border-color: var(--md-primary-fg-color);
+}
+
+.workflow-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.workflow-card:hover::before {
+    left: 100%;
+}
+
+/* Make workflow cards more interactive */
+.workflow-card {
+    cursor: pointer;
+}
+
+.workflow-card .md-button--primary {
+    pointer-events: all;
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced Button Styles */
+.md-button--lg {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    margin: 0 10px 10px 0;
+    transition: all 0.3s ease;
+    background-color: #1976d2 !important;
+    color: white !important;
+    border: 2px solid #1976d2;
+    font-weight: 500;
+    text-shadow: none;
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.md-button--lg:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background-color: #1565c0 !important;
+    border-color: #1565c0;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Primary button styling */
+.md-button--primary.md-button--lg {
+    background-color: #2e7d32 !important;
+    border-color: #2e7d32;
+    color: white !important;
+}
+
+.md-button--primary.md-button--lg:hover {
+    background-color: #1b5e20 !important;
+    border-color: #1b5e20;
+    color: white !important;
+}
+
+/* Dark mode button support */
+[data-md-color-scheme="slate"] .md-button--lg {
+    background-color: #29b6f6 !important;
+    border-color: #29b6f6;
+    color: #263238 !important;
+}
+
+[data-md-color-scheme="slate"] .md-button--lg:hover {
+    background-color: #0288d1 !important;
+    border-color: #0288d1;
+    color: white !important;
+}
+
+[data-md-color-scheme="slate"] .md-button--primary.md-button--lg {
+    background-color: #66bb6a !important;
+    border-color: #66bb6a;
+    color: #1b5e20 !important;
+}
+
+[data-md-color-scheme="slate"] .md-button--primary.md-button--lg:hover {
+    background-color: #4caf50 !important;
+    border-color: #4caf50;
+    color: white !important;
+}
+
+/* Override Material theme's light text colors */
+.md-typeset p {
+    color: #000000 !important; /* Pure black text */
+    opacity: 1 !important;
+    font-weight: 500 !important; /* Bolder weight for better visibility */
+}
+
+.md-typeset blockquote {
+    color: #000000 !important; /* Pure black for quotes */
+    font-weight: 500 !important;
+}
+
+.md-typeset li {
+    color: #000000 !important; /* Pure black for list items */
+    font-weight: 500 !important;
+}
+
+/* Dark mode overrides */
+[data-md-color-scheme="slate"] .md-typeset p {
+    color: #ffffff !important; /* Pure white in dark mode */
+    font-weight: 500 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+    color: #ffffff !important; /* Pure white in dark mode */
+}
+
+[data-md-color-scheme="slate"] .md-typeset li {
+    color: #ffffff !important; /* Pure white for dark mode lists */
+}
+
+/* Mermaid Diagram Styling */
+.mermaid {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #2c3e50;
+}
+
+/* Dark mode support for Mermaid */
+[data-md-color-scheme="slate"] .mermaid {
+    background: linear-gradient(135deg, #37474f, #455a64);
+    color: #eceff1;
+}
+
+/* Dark mode workflow cards */
+[data-md-color-scheme="slate"] .workflow-card {
+    color: #eceff1 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+[data-md-color-scheme="slate"] .workflow-card h4 {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+
+[data-md-color-scheme="slate"] .workflow-card p {
+    color: #cfd8dc !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.7);
+}
+
+[data-md-color-scheme="slate"] .workflow-card .md-button--primary {
+    background-color: rgba(255,255,255,0.9) !important;
+    color: #2c3e50 !important;
+}
+
+[data-md-color-scheme="slate"] .workflow-card .md-button--primary:hover {
+    background-color: rgba(255,255,255,1) !important;
+}
+
+/* Hero Section Enhancement */
+.hero-section {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(33,150,243,0.1), rgba(156,39,176,0.1));
+    border-radius: 15px;
+}
+
+/* Improve text readability after hero section */
+.hero-section + h1 {
+    color: var(--md-default-fg-color) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 30px !important;
+}
+
+/* Fix the subtitle text readability - make it pure black */
+.hero-section + h1 + p {
+    color: #000000 !important; /* Pure black text */
+    font-size: 1.2em !important;
+    font-weight: 600 !important; /* Bolder weight */
+    text-shadow: none !important;
+    opacity: 1 !important;
+    line-height: 1.6 !important;
+}
+
+/* Dark mode support for subtitle */
+[data-md-color-scheme="slate"] .hero-section + h1 + p {
+    color: #ffffff !important; /* Pure white for dark mode */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* General text improvements */
+.md-content h2, .md-content h3, .md-content h4 {
+    color: #000000 !important; /* Pure black headings */
+}
+
+.md-content p {
+    color: #000000 !important; /* Pure black paragraph text */
+    line-height: 1.7;
+    opacity: 1 !important;
+    font-weight: 500 !important; /* Bolder text */
+}
+
+/* Ensure all headings are dark and readable */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+    color: #000000 !important; /* Pure black headings */
+    font-weight: 700 !important; /* Extra bold */
+}
+
+/* Strong/bold text improvements */
+.md-typeset strong {
+    color: #000000 !important; /* Pure black for emphasis */
+    font-weight: 800; /* Extra bold */
+}
+
+/* Dark mode heading overrides */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset strong {
+    color: #ffffff !important;
+}
+
+/* Aggressive text color overrides - make everything pure black */
+.md-content, 
+.md-content *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(strong):not(.md-button) {
+    color: #000000 !important; /* Pure black for everything */
+    opacity: 1 !important;
+}
+
+/* Specific targeting for all text elements */
+.md-content p,
+.md-content li,
+.md-content td,
+.md-content span,
+.md-content div:not(.workflow-card) {
+    color: #000000 !important; /* Pure black */
+    font-weight: 500 !important;
+}
+
+/* Make sure content after hero section is pure black */
+.hero-section ~ * p,
+.hero-section ~ * li,
+.hero-section ~ * span:not(.md-button) {
+    color: #000000 !important; /* Pure black */
+    font-weight: 500 !important;
+}
+
+/* Dark mode comprehensive overrides */
+[data-md-color-scheme="slate"] .md-content,
+[data-md-color-scheme="slate"] .md-content *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(strong):not(.md-button) {
+    color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-content p,
+[data-md-color-scheme="slate"] .md-content li,
+[data-md-color-scheme="slate"] .md-content td,
+[data-md-color-scheme="slate"] .md-content span,
+[data-md-color-scheme="slate"] .md-content div:not(.workflow-card) {
+    color: #ffffff !important;
+}
+
+/* Universal black text override - catch everything */
+body:not([data-md-color-scheme="slate"]) * {
+    color: #000000 !important;
+}
+
+/* Exceptions for buttons and special elements */
+body:not([data-md-color-scheme="slate"]) .md-button,
+body:not([data-md-color-scheme="slate"]) .md-button *,
+body:not([data-md-color-scheme="slate"]) a.md-button {
+    color: inherit !important;
+}
+
+/* Make sure all text content is pure black */
+body:not([data-md-color-scheme="slate"]) .md-content,
+body:not([data-md-color-scheme="slate"]) .md-content *:not(.md-button):not(a.md-button) {
+    color: #000000 !important;
+}
+
+/* Ensure headers, paragraphs, lists are all black */
+body:not([data-md-color-scheme="slate"]) h1,
+body:not([data-md-color-scheme="slate"]) h2,
+body:not([data-md-color-scheme="slate"]) h3,
+body:not([data-md-color-scheme="slate"]) h4,
+body:not([data-md-color-scheme="slate"]) h5,
+body:not([data-md-color-scheme="slate"]) h6,
+body:not([data-md-color-scheme="slate"]) p,
+body:not([data-md-color-scheme="slate"]) li,
+body:not([data-md-color-scheme="slate"]) td,
+body:not([data-md-color-scheme="slate"]) th,
+body:not([data-md-color-scheme="slate"]) span:not(.md-button):not(.md-button *),
+body:not([data-md-color-scheme="slate"]) div:not(.md-button):not(.workflow-card) {
+    color: #000000 !important;
+}
+
+/* Super aggressive override - highest specificity */
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h1,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h2,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h3,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h4,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h5,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset h6,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset p,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset li,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset td,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset span:not(.md-button):not(.md-button *),
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset div:not(.md-button):not(.workflow-card),
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset blockquote,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset strong,
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset em {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* Target Material Design's specific classes */
+html body:not([data-md-color-scheme="slate"]) .md-typeset__scrollwrap,
+html body:not([data-md-color-scheme="slate"]) .md-typeset__table,
+html body:not([data-md-color-scheme="slate"]) .md-content__inner {
+    color: #000000 !important;
+}
+
+/* Final nuclear option - override everything with maximum specificity */
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content article.md-content__inner div.md-content *:not(.md-button):not(.md-button *):not(.mermaid):not(.mermaid *) {
+    color: #000000 !important;
+}
+
+/* Specific override for problematic subtitle and content */
+html body:not([data-md-color-scheme="slate"]) .md-main .md-content .md-typeset > p:first-of-type,
+html body:not([data-md-color-scheme="slate"]) .hero-section + h1 + p,
+html body:not([data-md-color-scheme="slate"]) .md-content h1 + p {
+    color: #000000 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* Override any Material Design color variables */
+:root:not([data-md-color-scheme="slate"]) {
+    --md-typeset-color: #000000 !important;
+    --md-default-fg-color: #000000 !important;
+    --md-default-fg-color--light: #000000 !important;
+    --md-default-fg-color--lighter: #000000 !important;
+    --md-default-fg-color--lightest: #000000 !important;
+}
+
+/* Global black text enforcement - applies to all pages */
+html body:not([data-md-color-scheme="slate"]) {
+    color: #000000 !important;
+}
+
+html body:not([data-md-color-scheme="slate"]) *:not(.md-button):not(.md-button *):not(.mermaid):not(.mermaid *) {
+    color: #000000 !important;
+}
+
+/* Force all text elements to be black on every page */
+html body:not([data-md-color-scheme="slate"]) p,
+html body:not([data-md-color-scheme="slate"]) h1,
+html body:not([data-md-color-scheme="slate"]) h2,
+html body:not([data-md-color-scheme="slate"]) h3,
+html body:not([data-md-color-scheme="slate"]) h4,
+html body:not([data-md-color-scheme="slate"]) h5,
+html body:not([data-md-color-scheme="slate"]) h6,
+html body:not([data-md-color-scheme="slate"]) li,
+html body:not([data-md-color-scheme="slate"]) td,
+html body:not([data-md-color-scheme="slate"]) th,
+html body:not([data-md-color-scheme="slate"]) span:not(.md-button):not(.md-button *),
+html body:not([data-md-color-scheme="slate"]) div:not(.md-button):not(.workflow-card),
+html body:not([data-md-color-scheme="slate"]) strong,
+html body:not([data-md-color-scheme="slate"]) em,
+html body:not([data-md-color-scheme="slate"]) blockquote {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+/* Animation for workflow steps */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.workflow-step {
+    animation: pulse 2s infinite;
+    animation-delay: var(--delay);
+}
+
+/* Grid responsiveness */
+@media (max-width: 768px) {
+    .workflow-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .md-button--lg {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .workflow-card h4 {
+        font-size: 1.3em;
+    }
+    
+    .workflow-card p {
+        font-size: 0.95em;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .workflow-card {
+        background: white !important;
+        border: 3px solid #000 !important;
+        color: #000 !important;
+    }
+    
+    .workflow-card h4 {
+        color: #000 !important;
+    }
+    
+    .workflow-card p {
+        color: #333 !important;
+    }
+    
+    .workflow-card .md-button--primary {
+        background-color: #000 !important;
+        color: white !important;
+        border: 2px solid #000 !important;
+    }
+}
+
+/* Accessibility improvements */
+.workflow-card:focus-within {
+    outline: 3px solid var(--md-accent-fg-color);
+    outline-offset: 2px;
+}
+
+.md-button--primary:focus {
+    outline: 2px solid var(--md-accent-fg-color);
+    outline-offset: 2px;
+}
+
+/* Animated arrows for Mermaid workflow diagram - Fixed for SVG */
+@keyframes dash-flow {
+    to {
+        stroke-dashoffset: -20;
+    }
+}
+
+@keyframes arrow-marker-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+}
+
+/* Target all Mermaid SVG paths (arrows) */
+.mermaid svg .edgePath .path,
+.mermaid svg .flowchart-link {
+    stroke-dasharray: 8 4 !important;
+    stroke-dashoffset: 0 !important;
+    animation: dash-flow 2s linear infinite !important;
+    stroke-width: 3px !important;
+}
+
+/* Target specific edge paths with better selectors */
+.mermaid svg g.edgePaths .edgePath .path {
+    stroke-dasharray: 8 4 !important;
+    animation: dash-flow 2s linear infinite !important;
+    stroke-width: 3px !important;
+}
+
+/* Staggered delays for different arrows */
+.mermaid svg g.edgePaths .edgePath:nth-child(1) .path {
+    animation-delay: 0s !important;
+    stroke: #0277bd !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(2) .path {
+    animation-delay: 0.3s !important;
+    stroke: #7b1fa2 !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(3) .path {
+    animation-delay: 0.6s !important;
+    stroke: #388e3c !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(4) .path {
+    animation-delay: 0.9s !important;
+    stroke: #f57c00 !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(5) .path {
+    animation-delay: 1.2s !important;
+    stroke: #c2185b !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(6) .path {
+    animation-delay: 1.5s !important;
+    stroke: #388e3c !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(7) .path {
+    animation-delay: 1.8s !important;
+    stroke: #f57c00 !important;
+}
+
+.mermaid svg g.edgePaths .edgePath:nth-child(8) .path {
+    animation-delay: 2.1s !important;
+    stroke: #c2185b !important;
+}
+
+/* Arrow markers animation */
+.mermaid svg defs marker polygon,
+.mermaid svg defs marker path {
+    animation: arrow-marker-pulse 2s ease-in-out infinite !important;
+}
+
+/* Hover effects */
+.mermaid:hover svg .edgePath .path {
+    animation-duration: 1s !important;
+    stroke-width: 4px !important;
+}
+
+/* Alternative approach - target all paths in flowchart */
+.mermaid svg path[stroke-dasharray] {
+    stroke-dasharray: 8 4 !important;
+    animation: dash-flow 2s linear infinite !important;
+}

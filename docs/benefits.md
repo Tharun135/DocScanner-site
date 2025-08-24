@@ -1,3 +1,13 @@
+<style>
+/* Universal black text override for this page */
+* { color: #000000 !important; text-align: left !important; }
+p { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+h1, h2, h3, h4, h5, h6 { color: #000000 !important; font-weight: 700 !important; text-align: left !important; }
+.md-typeset p { color: #000000 !important; text-align: left !important; }
+li { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+.md-content, .md-typeset { text-align: left !important; }
+</style>
+
 # 🎯 Benefits of DocScanner
 
 Discover the measurable value DocScanner brings to your writing process and organization through proven results and real impact.
@@ -66,8 +76,8 @@ Track writing quality improvements over time with quantifiable results. Compound
 
 **Ready to experience these benefits?**
 
-[See Performance Proof →](performance-measures.md){ .md-button .md-button--primary }
-
-[Learn How It Works →](technology.md){ .md-button }
-
-[Get Started →](how-to-use.md){ .md-button }
+<div style="text-align: center; margin-top: 20px;">
+  <a href="/performance-measures/" class="md-button md-button--primary">See Performance Proof →</a>
+  <a href="/technology/" class="md-button">Learn How It Works →</a>
+  <a href="/how-to-use/" class="md-button">Get Started →</a>
+</div>

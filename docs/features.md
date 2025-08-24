@@ -1,10 +1,20 @@
+<style>
+/* Universal black text override for this page */
+* { color: #000000 !important; text-align: left !important; }
+p { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+h1, h2, h3, h4, h5, h6 { color: #000000 !important; font-weight: 700 !important; text-align: left !important; }
+.md-typeset p { color: #000000 !important; text-align: left !important; }
+li { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+.md-content, .md-typeset { text-align: left !important; }
+</style>
+
 # ✨ Features of DocScanner
 
 DocScanner is designed to make technical documentation clear, consistent, and easy to improve. Explore the key features that help you write better, faster.  
 
 ---
 
-## 📂 Multi-Format Support
+## 📂 Multi-Format Support {#multi-format}
 
 Easily upload your documents in **DOCX, PDF, HTML, TXT, or ZIP** format. DocScanner extracts the content and gets it ready for analysis—no matter how your files are structured.  
 
@@ -48,8 +58,8 @@ Generate a full analysis report for each document. Reports include style complia
 
 **Ready to experience these features?**
 
-[Get Started →](how-to-use.md){ .md-button .md-button--primary }
-
-[See Benefits →](benefits.md){ .md-button }
-
-[View Performance →](performance-measures.md){ .md-button }
+<div style="text-align: center; margin-top: 20px;">
+  <a href="/how-to-use/" class="md-button md-button--primary">Get Started →</a>
+  <a href="/benefits/" class="md-button">See Benefits →</a>
+  <a href="/performance-measures/" class="md-button">View Performance →</a>
+</div>

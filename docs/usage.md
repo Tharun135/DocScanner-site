@@ -1,3 +1,13 @@
+<style>
+/* Universal black text override for this page */
+* { color: #000000 !important; text-align: left !important; }
+p { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+h1, h2, h3, h4, h5, h6 { color: #000000 !important; font-weight: 700 !important; text-align: left !important; }
+.md-typeset p { color: #000000 !important; text-align: left !important; }
+li { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+.md-content, .md-typeset { text-align: left !important; }
+</style>
+
 # 📖 Usage Guide
 
 Learn how to use DocScanner effectively to improve your writing and get the most out of its powerful features.
@@ -72,8 +82,8 @@ Seamlessly integrate DocScanner into your editing process. Use API endpoints for
 
 **Ready to start using DocScanner?**
 
-[Advanced Features →](features.md){ .md-button .md-button--primary }
-
-[Technical Details →](technology.md){ .md-button }
-
-[Get Help →](faq.md){ .md-button }
+<div style="text-align: center; margin-top: 20px;">
+  <a href="/features/" class="md-button md-button--primary">Advanced Features →</a>
+  <a href="/technology/" class="md-button">Technical Details →</a>
+  <a href="/faq/" class="md-button">Get Help →</a>
+</div>

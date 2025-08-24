@@ -1,3 +1,13 @@
+<style>
+/* Universal black text override for this page */
+* { color: #000000 !important; text-align: left !important; }
+p { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+h1, h2, h3, h4, h5, h6 { color: #000000 !important; font-weight: 700 !important; text-align: left !important; }
+.md-typeset p { color: #000000 !important; text-align: left !important; }
+li { color: #000000 !important; font-weight: 500 !important; text-align: left !important; }
+.md-content, .md-typeset { text-align: left !important; }
+</style>
+
 # 🔧 How DocScanner Works
 
 Understand the technology behind DocScanner and how it delivers intelligent writing assistance while keeping your data completely private.
@@ -83,8 +93,8 @@ graph TD
 
 **Ready to see how it works?**
 
-[Try It Now →](how-to-use.md){ .md-button .md-button--primary }
-
-[See It In Action →](usage.md){ .md-button }
-
-[View Performance →](performance-measures.md){ .md-button }
+<div style="text-align: center; margin-top: 20px;">
+  <a href="/how-to-use/" class="md-button md-button--primary">Try It Now →</a>
+  <a href="/usage/" class="md-button">See It In Action →</a>
+  <a href="/performance-measures/" class="md-button">View Performance →</a>
+</div>
