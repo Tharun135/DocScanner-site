@@ -1,198 +1,168 @@
-// Interactive Workflow Enhancement
+// Simple & Smooth Mermaid Interactions
 document.addEventListener('DOMContentLoaded', function() {
-    // Add interaction to "Explore Each Step" heading
-    const exploreHeading = document.querySelector('.explore-heading');
-    if (exploreHeading) {
-        exploreHeading.addEventListener('click', function() {
-            // Scroll to workflow section smoothly
-            const workflowGrid = document.querySelector('.workflow-grid');
-            if (workflowGrid) {
-                workflowGrid.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-                
-                // Add a pulse effect to all workflow cards
-                const cards = document.querySelectorAll('.workflow-card');
-                cards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.animation = 'pulse 0.8s ease-out';
-                        setTimeout(() => {
-                            card.style.animation = '';
-                        }, 800);
-                    }, index * 100);
-                });
-            }
-        });
+    function enhanceMermaidDiagram() {
+        const mermaidContainer = document.querySelector('.mermaid');
         
-        // Add cursor pointer
-        exploreHeading.style.cursor = 'pointer';
+        if (mermaidContainer) {
+            // Wait for Mermaid to render
+            setTimeout(() => {
+                const svg = mermaidContainer.querySelector('svg');
+                
+                if (svg) {
+                    console.log('Mermaid SVG found, adding interactions...');
+                    
+                    // Add simple click interactions to nodes
+                    const nodes = svg.querySelectorAll('.node, [id*="flowchart"]');
+                    console.log('Found nodes:', nodes.length);
+                    
+                    nodes.forEach((node, index) => {
+                        node.style.cursor = 'pointer';
+                        
+                        // Simple click effect - just add a class for CSS animation
+                        node.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            console.log('Node clicked:', index);
+                            
+                            // Remove previous clicked class from all nodes
+                            nodes.forEach(n => n.classList.remove('clicked'));
+                            
+                            // Add clicked class to this node
+                            this.classList.add('clicked');
+                            
+                            // Show simple alert with step info
+                            showStepInfo(index);
+                            
+                            // Remove after animation completes
+                            setTimeout(() => {
+                                this.classList.remove('clicked');
+                            }, 600);
+                        });
+                        
+                        // Add hover effect
+                        node.addEventListener('mouseenter', function() {
+                            console.log('Node hover:', index);
+                            this.style.transform = 'scale(1.05)';
+                            this.style.transition = 'transform 0.3s ease';
+                        });
+                        
+                        node.addEventListener('mouseleave', function() {
+                            this.style.transform = 'scale(1)';
+                        });
+                    });
+                    
+                    // Also try to target rectangles and shapes directly
+                    const shapes = svg.querySelectorAll('rect, circle, ellipse, polygon');
+                    console.log('Found shapes:', shapes.length);
+                    
+                    shapes.forEach((shape, index) => {
+                        shape.style.cursor = 'pointer';
+                        shape.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            console.log('Shape clicked:', index);
+                            showStepInfo(index);
+                        });
+                    });
+                    
+                    // Add keyboard navigation
+                    mermaidContainer.setAttribute('tabindex', '0');
+                    mermaidContainer.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            console.log('Keyboard interaction');
+                            showStepInfo(0);
+                            // Trigger a gentle pulse animation
+                            this.style.animation = 'none';
+                            this.offsetHeight; // Trigger reflow
+                            this.style.animation = 'diagram-pulse 1s ease-out';
+                        }
+                    });
+                    
+                    console.log('Mermaid interactions setup complete!');
+                }
+            }, 1500); // Increased timeout to ensure Mermaid is fully rendered
+        }
     }
     
-    // Add click animations to workflow cards (only on homepage)
-    const workflowCards = document.querySelectorAll('.workflow-grid .workflow-card');
-    
-    workflowCards.forEach((card, index) => {
-        // Add staggered animation delay
-        card.style.setProperty('--delay', `${index * 0.2}s`);
+    // Show step information
+    function showStepInfo(index) {
+        const stepInfo = [
+            "📄 Upload Document: Support for multiple formats with drag & drop",
+            "🚀 Intelligent Processing: Multi-engine analysis with AI power",
+            "📚 Grammar Analysis: Built-in rules with spaCy NLP",
+            "🤖 AI Analysis: Local AI models - Mistral, Llama, Phi3",
+            "📐 Structure Check: Layout analysis and format validation",
+            "💎 Smart Suggestions: Actionable insights with confidence scores",
+            "✨ Transformation: Professional quality improvements",
+            "📤 Export Results: Multiple formats with detailed reports"
+        ];
         
-        // Add click animation
-        card.addEventListener('click', function(e) {
-            // Let button clicks work normally - check for both direct button and nested elements
-            if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) {
-                return; // Don't interfere with button clicks
-            }
-            
-            // Add pulse animation
-            this.style.animation = 'pulse 0.6s ease-out';
-            setTimeout(() => {
-                this.style.animation = '';
-            }, 600);
-            
-            // Find and navigate to the button's link - improved logic
-            const button = this.querySelector('a.md-button');
-            if (button && button.getAttribute('href')) {
-                setTimeout(() => {
-                    button.click(); // Use click() method instead of direct navigation
-                }, 300);
-            }
-        });
+        const info = stepInfo[index] || "DocScanner Step: Part of the intelligent workflow";
         
-        // Enhanced hover effects
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
-        });
+        // Create a simple notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 300px;
+            font-size: 14px;
+            animation: slideIn 0.3s ease-out;
+        `;
+        notification.textContent = info;
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(-5px) scale(1)';
-            this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
-        });
-    });
+        // Add animation keyframes
+        if (!document.querySelector('#notification-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'notification-styles';
+            styles.textContent = `
+                @keyframes slideIn {
+                    from { opacity: 0; transform: translateX(20px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideIn 0.3s ease-in reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
     
-    // Add animated entrance for cards
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 150);
-            }
-        });
-    });
+    // Initial enhancement
+    enhanceMermaidDiagram();
     
-    workflowCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-    
-    // Enhanced Mermaid diagram interaction with animated arrows
-    const mermaidDiagram = document.querySelector('.mermaid');
-    if (mermaidDiagram) {
-        // Wait for Mermaid to fully render, then apply animations
-        const applyAnimations = () => {
-            // Apply dash animation to all edge paths
-            const edges = mermaidDiagram.querySelectorAll('svg g.edgePaths .edgePath .path, svg .flowchart-link, svg path[marker-end]');
-            console.log('Found edges:', edges.length); // Debug log
-            
-            edges.forEach((edge, index) => {
-                edge.style.strokeDasharray = '8 4';
-                edge.style.strokeDashoffset = '0';
-                edge.style.animation = 'dash-flow 2s linear infinite';
-                edge.style.animationDelay = `${index * 0.3}s`;
-                edge.style.strokeWidth = '3px';
-                
-                // Add different colors
-                const colors = ['#0277bd', '#7b1fa2', '#388e3c', '#f57c00', '#c2185b'];
-                edge.style.stroke = colors[index % colors.length];
-                
-                console.log(`Applied animation to edge ${index}`); // Debug log
-            });
-
-            // Apply animation to arrow markers
-            const markers = mermaidDiagram.querySelectorAll('svg defs marker polygon, svg defs marker path');
-            console.log('Found markers:', markers.length); // Debug log
-            
-            markers.forEach((marker, index) => {
-                marker.style.animation = 'arrow-marker-pulse 2s ease-in-out infinite';
-                marker.style.animationDelay = `${index * 0.2}s`;
-                console.log(`Applied animation to marker ${index}`); // Debug log
-            });
-
-            // If no edges found, try alternative selectors
-            if (edges.length === 0) {
-                const alternativeEdges = mermaidDiagram.querySelectorAll('svg path');
-                console.log('Trying alternative selector, found paths:', alternativeEdges.length);
-                
-                alternativeEdges.forEach((edge, index) => {
-                    if (edge.getAttribute('marker-end') || edge.getAttribute('stroke-width')) {
-                        edge.style.strokeDasharray = '8 4';
-                        edge.style.animation = 'dash-flow 2s linear infinite';
-                        edge.style.animationDelay = `${index * 0.3}s`;
-                        console.log(`Applied animation to alternative edge ${index}`);
+    // Re-enhance if mermaid content changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && (node.classList.contains('mermaid') || node.querySelector('.mermaid'))) {
+                        console.log('Mermaid content changed, re-enhancing...');
+                        setTimeout(() => enhanceMermaidDiagram(), 500);
                     }
                 });
             }
-        };
-
-        // Try applying animations at different intervals
-        setTimeout(applyAnimations, 1000);
-        setTimeout(applyAnimations, 2000);
-        setTimeout(applyAnimations, 3000);
-
-        // Also apply on any DOM changes
-        const observer = new MutationObserver(() => {
-            setTimeout(applyAnimations, 500);
         });
-        observer.observe(mermaidDiagram, { childList: true, subtree: true });
-
-        // Add click handlers to nodes for better interactivity
-        setTimeout(() => {
-            const nodes = mermaidDiagram.querySelectorAll('[id*="flowchart"], .node');
-            nodes.forEach(node => {
-                node.style.cursor = 'pointer';
-                node.addEventListener('click', function() {
-                    // Add visual feedback
-                    this.style.filter = 'brightness(1.2)';
-                    setTimeout(() => {
-                        this.style.filter = '';
-                    }, 200);
-                });
-                
-                // Add hover effect that speeds up nearby arrows
-                node.addEventListener('mouseenter', function() {
-                    const nearbyEdges = mermaidDiagram.querySelectorAll('svg path[stroke-dasharray]');
-                    nearbyEdges.forEach(edge => {
-                        edge.style.animationDuration = '1s';
-                        edge.style.strokeWidth = '4px';
-                    });
-                });
-                
-                node.addEventListener('mouseleave', function() {
-                    const nearbyEdges = mermaidDiagram.querySelectorAll('svg path[stroke-dasharray]');
-                    nearbyEdges.forEach(edge => {
-                        edge.style.animationDuration = '2s';
-                        edge.style.strokeWidth = '3px';
-                    });
-                });
-            });
-        }, 2000);
-    }
-});
-
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
     });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    
+    // Also try to enhance after a longer delay in case Mermaid is slow
+    setTimeout(() => {
+        console.log('Backup enhancement attempt...');
+        enhanceMermaidDiagram();
+    }, 3000);
 });

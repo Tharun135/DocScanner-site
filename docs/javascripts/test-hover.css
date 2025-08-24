@@ -1,0 +1,19 @@
+/* Emergency Hover Test CSS - This should definitely work */
+
+/* Basic hover effect that targets any mermaid element */
+.mermaid {
+    border: 2px solid red !important;
+    transition: all 0.3s ease !important;
+}
+
+.mermaid:hover {
+    border: 2px solid green !important;
+    transform: scale(1.1) !important;
+    background-color: yellow !important;
+}
+
+/* Test for any div containing mermaid */
+div.mermaid:hover {
+    border: 5px solid blue !important;
+    transform: scale(1.2) !important;
+}

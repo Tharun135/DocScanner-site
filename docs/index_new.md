@@ -1,28 +1,7 @@
-<div class="hero-section">
+<div class="hero-section" style="background-image: url('images/logo-docscanner.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 500px; position: relative; margin: -20px -20px 40px -20px; border-radius: 15px;">
 </div>
 
 <style>
-/* Hero Section Styling - Inline for highest priority */
-.hero-section {
-    background-image: url('/images/logo-docscanner.png') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    min-height: 500px !important;
-    width: 100% !important;
-    margin: 0 0 40px 0 !important;
-    border-radius: 15px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
-    position: relative !important;
-}
-
-/* Force override Material theme styles */
-.md-content__inner .hero-section {
-    max-width: none !important;
-    margin-left: -1rem !important;
-    margin-right: -1rem !important;
-}
-
 /* Inline CSS to force black text - highest priority */
 * { color: #000000 !important; }
 p { color: #000000 !important; }
@@ -121,84 +100,22 @@ DocScanner is like having a professional editor that works for you 24/7. It anal
 
 ---
 
-## 🛠 DocScanner Workflow - RAG Enhanced
+## 🤖 RAG-Based DocScanner Workflow
 
 <div style="background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%); padding: 30px; border-radius: 20px; margin: 30px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); text-align: center;">
 
 <div style="margin-bottom: 20px;">
-<h3 style="color: #333333 !important; margin: 0; text-shadow: none;">� Complete Document Processing Pipeline</h3>
+<h3 style="color: #333333 !important; margin: 0; text-shadow: none;">🔍 AI-Powered Document Analysis</h3>
 </div>
-
-<style>
-/* Animate arrow lines */
-.mermaid svg .edgePaths path {
-  stroke-dasharray: 20 10 !important;
-  animation: dash 1.5s linear infinite !important;
-  stroke-width: 2px;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: -30;
-  }
-}
-
-/* Rounded node boxes with shadows */
-.mermaid svg rect {
-  rx: 10;
-  ry: 10;
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.15));
-  stroke-width: 2px;
-}
-
-/* Default node color */
-.mermaid svg .node rect {
-  fill: #e3f2fd !important;
-  stroke: #2196f3 !important;
-}
-
-/* RAG cluster style */
-.mermaid svg .cluster rect {
-  fill: #fff3cd !important;
-  stroke: #ff9800 !important;
-  stroke-width: 3px;
-  filter: drop-shadow(2px 2px 6px rgba(255,152,0,0.3));
-}
-
-/* RAG nodes inside */
-.mermaid svg .cluster .node rect {
-  fill: #fff8e1 !important;
-  stroke: #ffb74d !important;
-}
-
-/* Text styling */
-.mermaid svg text {
-  font-family: 'Segoe UI', sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 500;
-}
-
-/* Hover effects */
-.mermaid:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-}
-</style>
 
 ```mermaid
 flowchart TD
-    A["� Upload Document"] --> B["🛠 Text Extraction<br/>(PDF, MD, DOCX, HTML, ZIP)"]
-    B --> C["🧹 Text Parsing & Cleaning"]
-    C --> D["� Rule-Based Checks<br/>(Style Guide, Grammar, Readability)"]
-    C --> E
-    subgraph RAG["🔥 RAG (Retrieval-Augmented Generation)"]
-        E["🧠 Embedding Generation"]
-        E --> F["💾 Store in ChromaDB<br/>+ Knowledge Base"]
-        F --> G["� AI Suggestions & Feedback"]
-    end
-    D --> G
-    G --> H["📑 Report Generation"]
+    A["📝 Ask a Question"] --> B["🤔 Understand the Question<br/>(Turn into search form)"]
+    B --> C["🔍 Retrieve Helpful Info<br/>(Search the knowledge base)"]
+    C --> D["📂 Select the Best Bits<br/>(Most relevant info)"]
+    D --> E["🔗 Merge with the Question"]
+    E --> F["💡 Generate the Answer<br/>(AI writes the reply)"]
+    F --> G["📢 Deliver Answer to the User"]
 ```
 
 </div>

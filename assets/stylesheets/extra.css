@@ -1,3 +1,47 @@
+
+
+/* Hero Section Styling */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-image: url('/assets/logo.png') !important;
+    background-size: 200px 200px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 500px !important;
+    position: relative !important;
+    margin: -20px -20px 40px -20px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hero-content {
+    text-align: center !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 40px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    margin-top: 200px !important;
+}
+
+.hero-content h1 {
+    font-size: 3em !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin: 0 0 20px 0 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.hero-content p {
+    font-size: 1.3em !important;
+    color: #666 !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
 /* Global text alignment - default to left */
 .md-content,
 .md-content .md-typeset,
@@ -236,12 +280,126 @@
     margin: 30px 0;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     color: #2c3e50;
+    transition: all 0.3s ease !important;
+    cursor: default;
+    transform-origin: center center;
+}
+
+/* Hover effect for the entire Mermaid diagram */
+.workflow-container .mermaid:hover,
+.mermaid:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+}
+
+/* Individual node hover effects */
+.mermaid svg g.node:hover,
+.mermaid svg g:hover {
+    transform: translateY(-3px) !important;
+    filter: brightness(1.2) drop-shadow(0 2px 5px rgba(0,0,0,0.3)) !important;
+    transition: all 0.2s ease !important;
+}
+
+.mermaid svg g.node,
+.mermaid svg g {
+    transition: all 0.2s ease !important;
 }
 
 /* Dark mode support for Mermaid */
 [data-md-color-scheme="slate"] .mermaid {
     background: linear-gradient(135deg, #37474f, #455a64);
     color: #eceff1;
+    transition: all 0.3s ease !important;
+    transform-origin: center center;
+}
+
+/* Dark mode hover effects */
+[data-md-color-scheme="slate"] .workflow-container .mermaid:hover,
+[data-md-color-scheme="slate"] .mermaid:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+
+/* Workflow container specific styling */
+.workflow-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Force hover effects on workflow diagram */
+.workflow-container .mermaid {
+    display: block !important;
+    position: relative !important;
+    transform: scale(1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.workflow-container .mermaid:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25) !important;
+    z-index: 10 !important;
+}
+
+/* Target all SVG elements inside mermaid */
+.mermaid svg {
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.mermaid svg:hover {
+    filter: brightness(1.1) !important;
+}
+
+/* ===== ANIMATED ARROWS - Enhanced for DocScanner Flow ===== */
+.mermaid svg .edgePaths path,
+.mermaid svg .flowchart-link,
+.mermaid svg path.path {
+  stroke-dasharray: 20 10 !important;
+  animation: dash-flow 1.5s linear infinite !important;
+  stroke-width: 2px !important;
+}
+
+@keyframes dash-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -30;
+  }
+}
+
+/* Ensure arrows are visible and animated */
+.mermaid svg g.edgePaths .edgePath .path {
+  stroke-dasharray: 20 10 !important;
+  animation: dash-flow 1.5s linear infinite !important;
+  stroke-width: 2px !important;
+}
+
+/* ===== RAG CLUSTER SPECIAL STYLING ===== */
+.mermaid svg .cluster rect {
+  fill: #fff3cd !important;
+  stroke: #ff9800 !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(2px 2px 6px rgba(255,152,0,0.3)) !important;
+  rx: 15 !important;
+  ry: 15 !important;
+}
+
+/* RAG nodes inside cluster */
+.mermaid svg .cluster .node rect {
+  fill: #fff8e1 !important;
+  stroke: #ffb74d !important;
+  stroke-width: 2px !important;
+}
+
+/* Enhanced node styling for DocScanner flow */
+.mermaid svg .node rect {
+  rx: 10 !important;
+  ry: 10 !important;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.15)) !important;
+  stroke-width: 2px !important;
+  fill: #e3f2fd !important;
+  stroke: #2196f3 !important;
 }
 
 /* Dark mode workflow cards */
@@ -647,14 +805,166 @@ html body:not([data-md-color-scheme="slate"]) blockquote {
     animation: arrow-marker-pulse 2s ease-in-out infinite !important;
 }
 
-/* Hover effects */
-.mermaid:hover svg .edgePath .path {
-    animation-duration: 1s !important;
-    stroke-width: 4px !important;
+/* ===== SIMPLE & SMOOTH MERMAID INTERACTIONS ===== */
+
+/* Basic mermaid styling */
+.mermaid {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    transform-origin: center center;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
 }
 
-/* Alternative approach - target all paths in flowchart */
-.mermaid svg path[stroke-dasharray] {
-    stroke-dasharray: 8 4 !important;
-    animation: dash-flow 2s linear infinite !important;
+/* Smooth zoom and jump effect on hover */
+.mermaid:hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+}
+
+/* Enhanced node hover effects */
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node ellipse,
+.mermaid svg .node polygon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: center center;
+}
+
+.mermaid svg .node:hover rect,
+.mermaid svg .node:hover circle,
+.mermaid svg .node:hover ellipse,
+.mermaid svg .node:hover polygon {
+    transform: scale(1.1);
+    filter: brightness(1.1) drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+/* Simple arrow flow animation */
+@keyframes simple-flow {
+    0% {
+        stroke-dashoffset: 10;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Apply subtle flow to arrows */
+.mermaid svg .edgePath .path,
+.mermaid svg .flowchart-link {
+    stroke-dasharray: 5 3;
+    animation: simple-flow 2s linear infinite;
+    stroke-linecap: round;
+    transition: all 0.3s ease;
+}
+
+/* Speed up flow on hover */
+.mermaid:hover svg .edgePath .path,
+.mermaid:hover svg .flowchart-link {
+    animation-duration: 0.8s;
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* Jump animation for individual nodes on click */
+@keyframes node-jump {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.15);
+    }
+}
+
+.mermaid svg .node.clicked rect,
+.mermaid svg .node.clicked circle,
+.mermaid svg .node.clicked ellipse,
+.mermaid svg .node.clicked polygon {
+    animation: node-jump 0.6s ease-out;
+}
+
+/* Enhanced click feedback for all clickable elements */
+.mermaid svg .node,
+.mermaid svg rect,
+.mermaid svg circle,
+.mermaid svg ellipse,
+.mermaid svg polygon {
+    cursor: pointer !important;
+    transition: all 0.2s ease;
+}
+
+.mermaid svg .node:hover,
+.mermaid svg rect:hover,
+.mermaid svg circle:hover,
+.mermaid svg ellipse:hover,
+.mermaid svg polygon:hover {
+    filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    transform: scale(1.02);
+}
+
+/* Click ripple effect */
+@keyframes clickRipple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Subtle pulse for the entire diagram */
+@keyframes diagram-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(25, 118, 210, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(25, 118, 210, 0.2);
+    }
+}
+
+.workflow-container {
+    animation: diagram-pulse 4s ease-in-out infinite;
+}
+
+/* Smooth transitions for text elements */
+.mermaid svg text {
+    transition: all 0.3s ease;
+}
+
+.mermaid:hover svg text {
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .mermaid:hover {
+        transform: scale(1.03) translateY(-3px);
+    }
+    
+    .mermaid svg .node:hover rect,
+    .mermaid svg .node:hover circle,
+    .mermaid svg .node:hover ellipse,
+    .mermaid svg .node:hover polygon {
+        transform: scale(1.05);
+    }
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .mermaid,
+    .mermaid svg .node rect,
+    .mermaid svg .node circle,
+    .mermaid svg .node ellipse,
+    .mermaid svg .node polygon,
+    .mermaid svg .edgePath .path,
+    .mermaid svg .flowchart-link {
+        animation: none;
+        transition: none;
+    }
+    
+    .mermaid:hover {
+        transform: none;
+    }
 }

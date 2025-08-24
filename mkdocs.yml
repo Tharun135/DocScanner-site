@@ -44,4 +44,5 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
   - javascripts/background-fix.js
-  - javascripts/workflow-interactive.js
+  - javascripts/docscanner-flow.js
+  - javascripts/header-logo.js
