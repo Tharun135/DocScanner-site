@@ -32,12 +32,6 @@ All major document formats including Word, PDF, HTML, Markdown, and Plain Text. 
 
 ---
 
-## 🤖 Which AI model should I choose?
-
-**Mistral** (4.4GB) - Best balance of quality and speed. **Llama3** (4.7GB) - Highest quality for critical documents. **Phi3** (2.2GB) - Fast and resource-efficient.
-
----
-
 ## 🔒 How secure is my data?
 
 Completely secure. All processing happens on your infrastructure with no external API calls, no data transmission, and no analytics collection. GDPR and HIPAA compliant.
@@ -58,7 +52,7 @@ Yes! Add organization-specific rules through the web interface. Define what text
 
 ## 📊 How accurate are the suggestions?
 
-Grammar detection: 96% accuracy. Spelling: 98% accuracy. Style recommendations: 94% consistency. Confidence scores help you prioritize high-quality suggestions.
+Grammar detection: 90% accuracy. Spelling: 98% accuracy. Style recommendations: 94% consistency. Confidence scores help you prioritize high-quality suggestions.
 
 ---
 

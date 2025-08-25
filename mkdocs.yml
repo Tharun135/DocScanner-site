@@ -12,9 +12,8 @@ nav:
   - Features: features.md
   - Technology: technology.md
   - Working: usage.md
-  - Installation: how-to-use.md
   - Benefits: benefits.md
-  - Performance measures: performance-measures.md
+  - Installation: how-to-use.md
   - FAQ: faq.md
 
 markdown_extensions:
