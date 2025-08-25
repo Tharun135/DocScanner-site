@@ -11,10 +11,10 @@ nav:
   - Home: index.md
   - Features: features.md
   - Technology: technology.md
-  - Usage Guide: usage.md
+  - Working: usage.md
   - Installation: how-to-use.md
   - Benefits: benefits.md
-  - Performance Measures: performance-measures.md
+  - Performance measures: performance-measures.md
   - FAQ: faq.md
 
 markdown_extensions:

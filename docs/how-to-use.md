@@ -8,17 +8,17 @@ li { color: #000000 !important; font-weight: 500 !important; text-align: left !i
 .md-content, .md-typeset { text-align: left !important; }
 </style>
 
-# ⚙️ Installation & Setup Guide
+# ⚙️ Installation and setup guide
 
 Step-by-step instructions to get DocScanner running on your computer.
 
 ---
 
-## System Requirements
+## System requirements
 
-### What You Need
+### What you need
 
-**Minimum Requirements:**
+**Minimum requirements:**
 
 - 8GB RAM (memory)
 - 4-core processor
@@ -26,7 +26,7 @@ Step-by-step instructions to get DocScanner running on your computer.
 - Windows 10+, macOS 10.15+, or Linux
 - Internet connection (only for initial setup)
 
-**Recommended for Best Performance:**
+**Recommended for best performance:**
 
 - 16GB RAM or more
 - 8-core processor
@@ -73,7 +73,7 @@ Step-by-step instructions to get DocScanner running on your computer.
 
 ---
 
-## Step 3: First Launch
+## Step 3: First launch
 
 ### Starting DocScanner
 
@@ -103,7 +103,7 @@ When DocScanner starts for the first time:
 
 ---
 
-## Understanding AI Models
+## Understanding AI models
 
 DocScanner includes several AI models. Don't worry - it automatically picks the best one for your computer!
 
@@ -137,7 +137,7 @@ DocScanner includes several AI models. Don't worry - it automatically picks the 
 
 ## Step 4: Using DocScanner
 
-### Basic Usage
+### Basic usage
 
 1. **Open your web browser** to `http://localhost:5000`
 2. **Upload a document** by:
@@ -148,7 +148,7 @@ DocScanner includes several AI models. Don't worry - it automatically picks the 
 4. **Review suggestions** and apply improvements
 5. **Download** your improved document
 
-### Supported File Types
+### Supported file types
 
 DocScanner works with:
 
@@ -195,7 +195,7 @@ DocScanner works with:
 
 ### Getting Help
 
-**Built-in Help:**
+**Built-in help:**
 
 - Press F1 in DocScanner for context-sensitive help
 - Check the status indicator for system health
@@ -207,67 +207,7 @@ DocScanner works with:
 - Check FAQ for common questions
 - Review Features list for capabilities
 
-**Support Options:**
-
-- Contact technical support
-- Join the user community forum
-- Check the knowledge base online
-
 ---
-
-## Team & Enterprise Setup
-
-### Installing for Multiple Users
-
-**Small Teams (2-10 people):**
-
-1. Install DocScanner on a shared computer or server
-2. Team members access via web browser
-3. Set up user accounts and permissions
-4. Configure shared custom rules
-
-**Large Organizations:**
-
-1. Contact support for enterprise deployment
-2. Use Docker containers for scalability
-3. Integrate with existing authentication systems
-4. Set up monitoring and backup procedures
-
-### Security Considerations
-
-**Data Privacy:**
-
-- All processing happens on your computers
-- No data is sent to external servers
-- Documents never leave your network
-- Complete offline operation after setup
-
-**Access Control:**
-
-- Set up user accounts and passwords
-- Configure role-based permissions
-- Enable audit logging for compliance
-- Integrate with company authentication
-
----
-
-## Advanced Configuration
-
-### Performance Optimization
-
-**For Faster Processing:**
-
-1. Use SSD storage instead of traditional hard drives
-2. Add more RAM to your computer
-3. Close unnecessary applications
-4. Select faster AI models in settings
-
-**For Better Quality:**
-
-1. Use higher-quality AI models
-2. Add custom rules for your organization
-3. Train the system with your preferred style
-4. Review and accept high-confidence suggestions
 
 ### Customization Options
 

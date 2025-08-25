@@ -68,18 +68,6 @@ Yes! After initial setup and model download, DocScanner works completely offline
 
 ---
 
-## 💰 What does it cost?
-
-One-time setup cost with no monthly subscriptions. Install on multiple computers without per-user licensing fees. Great ROI through time savings.
-
----
-
-## 🆘 What if I need help?
-
-Comprehensive documentation, usage guides, and troubleshooting resources are available. Check the installation guide for setup assistance.
-
----
-
 **Ready to get started?**
 
 <div style="text-align: center; margin-top: 20px;">
