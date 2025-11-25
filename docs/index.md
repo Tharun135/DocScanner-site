@@ -110,6 +110,11 @@ h1, h2, h3, h4, h5, h6 { color: #000000 !important; }
 
 DocScanner is like having a professional editor that works for you 24/7. It analyzes your documents and suggests improvements to make your writing clearer, more professional, and easier to read.
 
+<video width="100%" controls>
+  <source src="images/AI-docscanner.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## 🔍 What makes DocScanner different
